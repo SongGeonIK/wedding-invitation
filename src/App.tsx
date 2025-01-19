@@ -3,8 +3,8 @@ import { WeddingInvitation } from './components/layout/WeddingInvitation';
 function App() {
   return (
     <WeddingInvitation
-      bride="[신랑이름]" // 신부
-      groom="[신부이름]"  // 신랑
+      groom="송건익"  // 신랑
+      bride="이지수" // 신부
       date="202X.XX.XX"
       time="XX시"
       location="대한민국 어딘가겠지?"

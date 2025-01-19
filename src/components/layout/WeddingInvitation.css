@@ -1,0 +1,22 @@
+/* 전체 컨테이너 */
+.wedding-invitation-container {
+    display: flex; /* 플렉스 레이아웃 */
+    flex-direction: column; /* 세로 방향 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    width: 100%; /* 전체 너비 */
+    margin: 0 auto; /* 화면 중앙 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+  
+  /* MainImage 컴포넌트 별도 처리 */
+  .wedding-invitation-container > :first-child {
+    width: 100%; /* MainImage는 전체 너비를 사용 */
+    max-width: none; /* max-width 제한 제거 */
+  }
+  
+  /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
+  .wedding-invitation-container > :not(:first-child) {
+    margin-top: 20px; /* MainImage 아래 컴포넌트들 간 간격 */
+  }
+  

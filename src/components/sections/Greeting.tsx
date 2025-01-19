@@ -1,14 +1,50 @@
+import flowerImage from '../../assets/images/flower.png';
+
+import './Greeting.css';
+
 type GrettingProps = {
-    bride: string;
-    groom: string;
+  bride: string;
+  groom: string;
+  groomTitle: string; // 신랑의 직함 (예: 차남)
+  brideTitle: string; // 신부의 직함 (예: 장녀)
+  parents: {
+    groomParents: string; // 신랑 부모님
+    brideParents: string; // 신부 부모님
   };
-  
-  export function Gretting({ bride, groom }: GrettingProps) {
-    return (
+  message: string; // 초대 메시지
+};
+
+export function Gretting({
+  groom,
+  bride,
+  groomTitle,
+  brideTitle,
+  parents,
+  message,
+}: GrettingProps) {
+  return (
+    <div className="gretting-container">
+      {/* 인사말 고정 부분 */}
       <div className="header">
-        <h1>{bride} & {groom}</h1>
-        <p className="subtitle">♡청첩장♡</p>
+        <h2 className="header-title">인사말</h2>
+        <hr className="header-line" />
       </div>
-    );
-  }
-  
+
+      {/* 이미지 추가 */}
+      <div className="image-container">
+        <img src={flowerImage} alt="꽃 이미지" className="flower-image" />
+      </div>
+
+      {/* 초대 메시지 */}
+      <div className="body">
+        <p className="message">{message}</p>
+
+        {/* 부모님 정보 */}
+        <div className="parents">
+          <p>{parents.groomParents}의 {groomTitle} <strong>{groom}</strong></p>
+          <p>{parents.brideParents}의 {brideTitle} <strong>{bride}</strong></p>
+        </div>
+      </div>
+    </div>
+  );
+}

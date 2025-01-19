@@ -1,0 +1,66 @@
+/* 전체 컨테이너 */
+.gretting-container {
+    max-width: 800px;
+    width: 50%; /* 너비를 50%로 제한 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin: 0 auto; /* 가로 중앙 정렬 */
+    position: relative; /* 부모 컨테이너에 의존하지 않음 */
+  }  
+  
+  /* 헤더 */
+  .header {
+    margin-bottom: 20px;
+    text-align: left; 
+  }
+  
+  .header-title {
+    font-size: 1.5rem; /* 텍스트 크기 */
+    color: #666; /* 텍스트 색상 */
+    margin: 0;
+  }
+  
+  .header-line {
+    width: 100%; /* 선의 너비 */
+    height: 1px;
+    background-color: #ccc; /* 선의 색상 */
+    border: none; /* 기본 border 제거 */
+    margin: 8px 0; /* 위아래 여백 */
+  }
+  
+  /* 이미지 스타일 */
+  .image-container {
+    margin-bottom: 20px; /* 이미지와 텍스트 간격 */
+  }
+  
+  .flower-image {
+    width: 80px; /* 이미지 크기 */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+  }
+  
+  /* 본문 메시지 */
+  .body .message {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    white-space: pre-line; /* 줄바꿈 처리 */
+    text-align: center; /* 본문 중앙 정렬 */
+    margin-bottom: 20px;
+  }
+  
+  /* 부모님 정보 */
+  .parents {
+    text-align: center; /* 부모님 정보 중앙 정렬 */
+  }
+  
+  .parents p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .parents p strong {
+    font-weight: bold; /* 이름 강조 */
+    color: #000; /* 검정색 강조 */
+  }
+  
