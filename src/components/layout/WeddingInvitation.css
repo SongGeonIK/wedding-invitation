@@ -17,6 +17,6 @@
   
   /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
   .wedding-invitation-container > :not(:first-child) {
-    margin-top: 20px; /* MainImage 아래 컴포넌트들 간 간격 */
+    margin-top: 60px; /* MainImage 아래 컴포넌트들 간 간격 */
   }
   

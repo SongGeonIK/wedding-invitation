@@ -14,7 +14,8 @@
   }
   
   .header-title {
-    font-size: 1.5rem; /* 텍스트 크기 */
+    font-size: 0.9rem; /* 텍스트 크기 */
+    font-weight: lighter;
     color: #666; /* 텍스트 색상 */
     margin: 0;
   }
@@ -32,8 +33,8 @@
     margin-bottom: 20px; /* 이미지와 텍스트 간격 */
   }
   
-  .flower-image {
-    width: 80px; /* 이미지 크기 */
+  .wedding-image {
+    width: 180px; /* 이미지 크기 */
     height: auto;
     display: block;
     margin: 0 auto; /* 이미지 중앙 정렬 */
@@ -60,7 +61,7 @@
   }
   
   .parents p strong {
-    font-weight: bold; /* 이름 강조 */
-    color: #000; /* 검정색 강조 */
+    font-weight: bold;
+    color: #222;
   }
   

@@ -1,4 +1,5 @@
-import flowerImage from '../../assets/images/flower.png';
+import WeddingBell from '../../assets/images/wedding-bell.svg';
+import RoseFlower from '../../assets/images/rose-flower.svg';
 
 import './Greeting.css';
 
@@ -32,7 +33,7 @@ export function Gretting({
 
       {/* 이미지 추가 */}
       <div className="image-container">
-        <img src={flowerImage} alt="꽃 이미지" className="flower-image" />
+        <img src={RoseFlower} alt="웨딩 이미지" className="wedding-image" />
       </div>
 
       {/* 초대 메시지 */}

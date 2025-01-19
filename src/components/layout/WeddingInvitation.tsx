@@ -19,12 +19,13 @@ export function WeddingInvitation({ groom, bride, date, time, location, message 
     <div className='wedding-invitation-container'>
       <MainImage 
         altText='이미지를 표시할 수 없습니다.'
+        mainText ='~간단한 결혼 문구 적자~'
         coupleNames={`${groom} | ${bride}`}
         detailsText={`${date} ${time}\n${location}`}
       />
       <Gretting
-        groom="송 건 익"
-        bride="이 지 수"
+        groom="건익"
+        bride="지수"
         groomTitle="장남"
         brideTitle="차녀"
         parents={{
