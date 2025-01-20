@@ -20,6 +20,27 @@
   
   /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
   .wedding-invitation-container > :not(:first-child) {
-    margin-top: 60px; /* MainImage 아래 컴포넌트들 간 간격 */
-    width: 50%; /* 너비를 50%로 제한 */
+    margin-top: 60px;
+    width: 450px;
+}
+
+/* 공통 헤더 스타일 */
+.header {
+  margin-bottom: 20px;
+  text-align: left; 
+}
+
+.header-title {
+  font-size: 0.9rem; /* 텍스트 크기 */
+  font-weight: lighter;
+  color: #333333; /* 텍스트 색상 */
+  margin: 0;
+}
+
+.header-line {
+  width: 100%; /* 선의 너비 */
+  height: 1px;
+  background-color: #ccc; /* 선의 색상 */
+  border: none; /* 기본 border 제거 */
+  margin: 8px 0; /* 위아래 여백 */
 }

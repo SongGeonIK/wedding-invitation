@@ -1,25 +1,3 @@
-  
-  /* 헤더 */
-  .header {
-    margin-bottom: 20px;
-    text-align: left; 
-  }
-  
-  .header-title {
-    font-size: 0.9rem; /* 텍스트 크기 */
-    font-weight: lighter;
-    color: #666; /* 텍스트 색상 */
-    margin: 0;
-  }
-  
-  .header-line {
-    width: 100%; /* 선의 너비 */
-    height: 1px;
-    background-color: #ccc; /* 선의 색상 */
-    border: none; /* 기본 border 제거 */
-    margin: 8px 0; /* 위아래 여백 */
-  }
-  
   /* 이미지 스타일 */
   .image-container {
     margin-bottom: 20px; /* 이미지와 텍스트 간격 */
@@ -34,9 +12,9 @@
   
   /* 본문 메시지 */
   .body .message {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.8;
-    color: #444;
+    color: #333333;
     white-space: pre-line; /* 줄바꿈 처리 */
     text-align: center; /* 본문 중앙 정렬 */
     margin-bottom: 20px;
@@ -54,6 +32,6 @@
   
   .parents p strong {
     font-weight: bold;
-    color: #222;
+    color: #333333;
   }
   

@@ -1,21 +1,68 @@
- /* 헤더 */
- .header {
-    margin-bottom: 20px;
-    text-align: left; 
-  }
-  
-  .header-title {
-    font-size: 0.9rem; /* 텍스트 크기 */
-    font-weight: lighter;
-    color: #666; /* 텍스트 색상 */
-    margin: 0;
-  }
-  
-  .header-line {
-    width: 100%; /* 선의 너비 */
-    height: 1px;
-    background-color: #ccc; /* 선의 색상 */
-    border: none; /* 기본 border 제거 */
-    margin: 8px 0; /* 위아래 여백 */
-  }
-  
+/* 날짜 및 시간 */
+.date-time-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.date-text, .time-text {
+  margin: 5px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 캘린더 컨테이너 스타일 */
+.calendar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.calendar {
+  width: 85%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #007b5e; /* 초록색 */
+  padding: 10px 0;
+  text-align: center;
+}
+
+.calendar-header-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.calendar-day {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  padding: 5px 0;
+}
+
+.normal-day {
+  color: #333;
+}
+
+.empty-day {
+  background-color: transparent;
+}
+
+.selected-day {
+  width: 40px; /* 원의 가로 크기 */
+  height: 40px; /* 원의 세로 크기 */
+  background-color: #ff6b8a; /* 핑크색 배경 */
+  color: #fff; /* 흰색 텍스트 */
+  border-radius: 50%; /* 정원 만들기 */
+  font-weight: bold; /* 텍스트 굵게 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  line-height: 40px; /* 텍스트 수직 중앙 정렬 */
+  margin: 10px auto; /* 중앙 정렬 */
+}

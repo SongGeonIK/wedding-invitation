@@ -58,7 +58,7 @@
   .couple-names {
     font-size: 2rem; /* 큰 텍스트 크기 */
     font-weight: normal; /* 텍스트 굵기 */
-    color: #555555; /* 어두운 회색 */
+    color: #333333;
     font-family: 'Malgun Gothic', sans-serif; /* 맑은 고딕 */
     margin: 0; /* 여백 제거 */
     text-align: center; /* 중앙 정렬 */
@@ -67,8 +67,8 @@
   
   /* 세부 정보 텍스트 */
   .details-text {
-    font-size: 1.1rem; /* 세부 텍스트 크기 */
-    color: #555555; /* 부드러운 회색 */
+    font-size: 0.9rem; /* 세부 텍스트 크기 */
+    color: #333333;
     font-family: 'Malgun Gothic', sans-serif; /* 맑은 고딕 */
     margin-top: 20px; 
     margin-bottom: 0px;
@@ -88,7 +88,7 @@
     }
   
     .details-text {
-      font-size: 1rem; /* 모바일에서 세부 텍스트 크기 줄이기 */
+      font-size: 0.8rem; /* 모바일에서 세부 텍스트 크기 줄이기 */
     }
   
     .text-overlay-container {

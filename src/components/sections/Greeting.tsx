@@ -3,7 +3,7 @@ import RoseFlower from '../../assets/images/rose-flower.svg';
 
 import './Greeting.css';
 
-type GrettingProps = {
+type GreetingProps = {
   bride: string;
   groom: string;
   groomTitle: string; // 신랑의 직함 (예: 차남)
@@ -15,14 +15,14 @@ type GrettingProps = {
   message: string; // 초대 메시지
 };
 
-export function Gretting({
+export function Greeting({
   groom,
   bride,
   groomTitle,
   brideTitle,
   parents,
   message,
-}: GrettingProps) {
+}: GreetingProps) {
   return (
     <div>
       {/* 인사말 고정 부분 */}
