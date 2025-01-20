@@ -1,0 +1,21 @@
+ /* 헤더 */
+ .header {
+    margin-bottom: 20px;
+    text-align: left; 
+  }
+  
+  .header-title {
+    font-size: 0.9rem; /* 텍스트 크기 */
+    font-weight: lighter;
+    color: #666; /* 텍스트 색상 */
+    margin: 0;
+  }
+  
+  .header-line {
+    width: 100%; /* 선의 너비 */
+    height: 1px;
+    background-color: #ccc; /* 선의 색상 */
+    border: none; /* 기본 border 제거 */
+    margin: 8px 0; /* 위아래 여백 */
+  }
+  
