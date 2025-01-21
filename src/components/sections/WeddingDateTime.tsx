@@ -1,4 +1,4 @@
-import './WeddingDateTime.css';
+import styles from './WeddingDateTime.module.css';
 
 type WeddingDateTimeProps = {
     year: number,
@@ -6,6 +6,10 @@ type WeddingDateTimeProps = {
     day: number,
     hour: number,
     minute: number,
+}
+
+function formatMonth(month: number) {
+    return String(month).padStart(2, "0");
 }
 
 export function WeddingDateTime({
@@ -24,25 +28,25 @@ export function WeddingDateTime({
             </div>
 
             {/* 날짜 및 시간 표시 */}
-            <div className="date-time-container">
-                <p className="date-text">{year}년 {month}월 {day}일</p>
-                <p className="time-text">
+            <div className={styles.dateTimeContainer}>
+                <p className={styles.dateText}>{year}년 {formatMonth(month)}월 {day}일</p>
+                <p className={styles.timeText}>
                     {dayOfWeekNames[new Date(year, month - 1, day).getDay()]}요일 {hour}시 {minute}분
                 </p>
             </div>
 
             {/* 캘린더 헤더 */}
-            <div className="calendar-container">
-                <div className="calendar-header-title">
-                    <p>{year}년 {month}월 {day}일</p>
+            <div className={styles.calendarContainer}>
+                <div className={styles.calendarHeaderTitle}>
+                    <p>{year}년 {formatMonth(month)}월</p>
                 </div>
 
                 {/* 캘린더 */}
-                <table className="calendar">
+                <table className={styles.calendar}>
                     <thead>
                         <tr>
                             {dayOfWeekNames.map((dayName) => (
-                                <th key={dayName} className="calendar-header">{dayName}</th>
+                                <th key={dayName} className={styles.calendarHeader}>{dayName}</th>
                             ))}
                         </tr>
                     </thead>
@@ -56,12 +60,12 @@ export function WeddingDateTime({
                                     return (
                                         <td
                                             key={dayIndex}
-                                            className={`calendar-day ${
+                                            className={`${styles.calendarDay} ${
                                                 currentDay === day
-                                                    ? 'selected-day'
+                                                    ? styles.selectedDay
                                                     : currentDay > 0 && currentDay <= daysInMonth
-                                                    ? 'normal-day'
-                                                    : 'empty-day'
+                                                    ? styles.normalDay
+                                                    : styles.emptyDay
                                             }`}
                                         >
                                             {currentDay > 0 && currentDay <= daysInMonth

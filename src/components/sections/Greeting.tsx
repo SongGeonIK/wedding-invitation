@@ -1,7 +1,7 @@
 import WeddingBell from '../../assets/images/wedding-bell.svg';
 import RoseFlower from '../../assets/images/rose-flower.svg';
 
-import './Greeting.css';
+import styles from './Greeting.module.css';
 
 type GreetingProps = {
   bride: string;
@@ -32,16 +32,16 @@ export function Greeting({
       </div>
 
       {/* 이미지 추가 */}
-      <div className="image-container">
-        <img src={RoseFlower} alt="웨딩 이미지" className="wedding-image" />
+      <div className={styles.imageContainer}>
+        <img src={RoseFlower} alt="웨딩 이미지" className={styles.weddingImage} />
       </div>
 
       {/* 초대 메시지 */}
-      <div className="body">
-        <p className="message">{message}</p>
+      <div className={styles.body}>
+        <p className={styles.message}>{message}</p>
 
         {/* 부모님 정보 */}
-        <div className="parents">
+        <div className={styles.parents}>
           <p>{parents.groomParents}의 {groomTitle} <strong>{groom}</strong></p>
           <p>{parents.brideParents}의 {brideTitle} <strong>{bride}</strong></p>
         </div>

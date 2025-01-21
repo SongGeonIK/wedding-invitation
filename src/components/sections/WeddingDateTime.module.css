@@ -1,10 +1,10 @@
 /* 날짜 및 시간 */
-.date-time-container {
+.dateTimeContainer {
   text-align: right;
   margin-bottom: 20px;
 }
 
-.date-text, .time-text {
+.dateText, .timeText {
   margin: 5px 0;
   font-size: 1rem;
   font-weight: 500;
@@ -12,7 +12,7 @@
 }
 
 /* 캘린더 컨테이너 스타일 */
-.calendar-container {
+.calendarContainer {
   text-align: center;
   margin-top: 20px;
 }
@@ -23,7 +23,7 @@
   margin: 0 auto;
 }
 
-.calendar-header {
+.calendarHeader {
   font-size: 0.9rem;
   font-weight: bold;
   color: #007b5e; /* 초록색 */
@@ -31,14 +31,14 @@
   text-align: center;
 }
 
-.calendar-header-title {
-  font-size: 1rem;
+.calendarHeaderTitle {
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #333;
+  color: #007b5e;
   margin-bottom: 10px;
 }
 
-.calendar-day {
+.calendarDay {
   width: 40px;
   height: 40px;
   text-align: center;
@@ -47,15 +47,15 @@
   padding: 5px 0;
 }
 
-.normal-day {
+.normalDay {
   color: #333;
 }
 
-.empty-day {
+.emptyDay {
   background-color: transparent;
 }
 
-.selected-day {
+.selectedDay {
   width: 40px; /* 원의 가로 크기 */
   height: 40px; /* 원의 세로 크기 */
   background-color: #ff6b8a; /* 핑크색 배경 */

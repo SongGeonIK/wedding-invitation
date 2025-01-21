@@ -1,4 +1,4 @@
-import './WeddingInvitation.css';
+import './WeddingInvitation.css'; // 글로벌 css
 import { Greeting } from '../sections/Greeting';
 import { Details } from '../sections/Details';
 import { Message } from '../sections/Message';
@@ -22,7 +22,7 @@ export function WeddingInvitation() {
     fatherName: '이민창',
     motherName: '최영란',
   };
-  const dateTime = '2025년 12월 16일 14시 30분'; // yyyy년 MM월 dd일 HH시 mm분
+  const dateTime = '2025년 01월 16일 14시 30분'; // yyyy년 MM월 dd일 HH시 mm분
   const location = '대한민국 어딘가겠지?';
   const greetingMessage = `서로의 소중함을 느끼며 함께한 시간 속에서\n저희 두 사람은 평생을 함께하고자 결혼을 약속하게 되었습니다.\n
                            저희의 새로운 시작을 축복으로 함께해 주신다면\n큰 기쁨과 감사로 기억하겠습니다.\n
