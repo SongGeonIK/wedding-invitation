@@ -21,7 +21,6 @@
   /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
   .wedding-invitation-container > :not(:first-child) {
     margin-top: 60px;
-    width: 450px;
 }
 
 /* 공통 헤더 스타일 */
@@ -44,3 +43,13 @@
   border: none; /* 기본 border 제거 */
   margin: 8px 0; /* 위아래 여백 */
 }
+
+  /* 반응형 디자인 */
+  @media (min-width: 500px) {
+    .header {
+      width: 500px;
+      margin-bottom: 20px;
+      text-align: left; 
+    }
+  }
+  
