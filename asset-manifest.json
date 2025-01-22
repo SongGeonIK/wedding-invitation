@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wedding-invitation/static/css/main.9bb4a843.css",
+    "main.css": "/wedding-invitation/static/css/main.45eb7ad8.css",
     "main.js": "/wedding-invitation/static/js/main.9613d35f.js",
     "static/media/rose-flower.svg": "/wedding-invitation/static/media/rose-flower.ae47eb27a2969d6ae90a5c1df88761fd.svg",
     "static/media/main-image.jpg": "/wedding-invitation/static/media/main-image.8af07d717d440e0d7ec1.jpg",
     "index.html": "/wedding-invitation/index.html",
-    "main.9bb4a843.css.map": "/wedding-invitation/static/css/main.9bb4a843.css.map",
+    "main.45eb7ad8.css.map": "/wedding-invitation/static/css/main.45eb7ad8.css.map",
     "main.9613d35f.js.map": "/wedding-invitation/static/js/main.9613d35f.js.map"
   },
   "entrypoints": [
-    "static/css/main.9bb4a843.css",
+    "static/css/main.45eb7ad8.css",
     "static/js/main.9613d35f.js"
   ]
 }
