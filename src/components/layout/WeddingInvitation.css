@@ -20,13 +20,13 @@
   
   /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
   .wedding-invitation-container > :not(:first-child) {
-    max-width: 500px;
+    width: 500px;
+    max-width: 100%;
     margin-top: 60px;
 }
 
 /* 공통 헤더 스타일 */
 .header {
-  width: 500px;
   margin-bottom: 20px;
   text-align: left;
 }
@@ -47,11 +47,10 @@
 }
 
   /* 반응형 디자인 */
-  @media (max-width: 550px) {
-      /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
+  @media (max-width: 500px) {
     .wedding-invitation-container > :not(:first-child) {
-      max-width: 90%;
-      margin-top: 60px;
+      width: auto;
+      max-width: 85%;
     }
   }
   
