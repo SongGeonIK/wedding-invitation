@@ -1,10 +1,8 @@
 import './WeddingInvitation.css'; // 글로벌 css
 import { Greeting } from '../sections/Greeting';
-import { Details } from '../sections/Details';
-import { Message } from '../sections/Message';
-import { ClosingRemarks } from '../sections/ClosingRemarks';
 import { MainImage } from '../sections/MainImage';
 import { WeddingDateTime } from '../sections/WeddingDateTime';
+import { Directions } from '../sections/Directions';
 
 export function WeddingInvitation() {
   // 커스텀 입력
@@ -23,10 +21,14 @@ export function WeddingInvitation() {
     motherName: '최영란',
   };
   const dateTime = '2025년 01월 16일 14시 30분'; // yyyy년 MM월 dd일 HH시 mm분
-  const location = '대한민국 어딘가겠지?';
+  const address = '서울 강서구 마곡동 760';
+  const weddingVenue = '웨딩 장소';
+  const floor = 'n층';
+  const weddingHall = 'OOO홀';
   const greetingMessage = `서로의 소중함을 느끼며 함께한 시간 속에서\n저희 두 사람은 평생을 함께하고자 결혼을 약속하게 되었습니다.\n
                            저희의 새로운 시작을 축복으로 함께해 주신다면\n큰 기쁨과 감사로 기억하겠습니다.\n
                            소중한 날에 따뜻한 마음으로 함께해 주세요.`;
+  const kakaoMapjavaScriptKey = 'b60269d99a7e6454b0390c8b10f181ca'; // 참고) 카카오 디벨로퍼에서 어플리케이션 생성 후 JavaScript 키 발급
 
   // 날짜 및 시간 파싱 함수
   function parseDateTime(dateTime: string): {
@@ -66,7 +68,7 @@ export function WeddingInvitation() {
         altText="이미지를 표시할 수 없습니다."
         mainText="결혼 간단한 문구 작성하기"
         coupleNames={`${groom.lastName}${groom.firstName} | ${bride.lastName}${bride.firstName}`}
-        detailsText={`${dateTime}\n${location}`}
+        detailsText={`${dateTime}\n${weddingVenue} ${floor} ${weddingHall}`}
       />
       {/* 인사말 */}
       <Greeting
@@ -87,6 +89,14 @@ export function WeddingInvitation() {
         day={parsedDateTime.day}
         hour={parsedDateTime.hour}
         minute={parsedDateTime.minute}
+      />
+      {/* 오시는 길 */}
+      <Directions
+        weddingVenue={weddingVenue}
+        floor={floor}
+        weddingHall={weddingHall}
+        address={address}
+        kakaoMapjavaScriptKey={kakaoMapjavaScriptKey}
       />
     </div>
   );
