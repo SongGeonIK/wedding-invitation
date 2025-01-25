@@ -13,8 +13,9 @@
 
 /* 캘린더 컨테이너 스타일 */
 .calendarContainer {
-  text-align: center;
-  margin-top: 20px;
+  width: 85%;
+  aspect-ratio: 1 / 1; /* 정사각형 비율 */
+  margin: 20px auto;
 }
 
 .calendar {

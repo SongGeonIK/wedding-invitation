@@ -49,8 +49,8 @@
   /* 반응형 디자인 */
   @media (max-width: 500px) {
     .wedding-invitation-container > :not(:first-child) {
-      width: auto;
+      width: 90%;
       max-width: 85%;
     }
-  }
+}
   

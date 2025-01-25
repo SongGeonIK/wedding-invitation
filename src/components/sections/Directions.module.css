@@ -12,7 +12,7 @@
 
   .mapContainer {
     width: 85%;
-    height: 400px;
+    aspect-ratio: 1 / 1; /* 정사각형 비율 */
     margin: 20px auto;
     display: block; /* 블록 요소로 설정 (중앙 정렬 적용을 위해) */
     border: 1px solid #ccc; /* 시각적으로 확인할 수 있는 테두리 추가 (선택 사항) */
