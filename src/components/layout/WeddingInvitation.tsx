@@ -29,6 +29,12 @@ export function WeddingInvitation() {
                            저희의 새로운 시작을 축복으로 함께해 주신다면\n큰 기쁨과 감사로 기억하겠습니다.\n
                            소중한 날에 따뜻한 마음으로 함께해 주세요.`;
   const kakaoMapjavaScriptKey = process.env.REACT_APP_KAKAO_API_KEY as string;  // 참고) root에서 .env 파일만들어 생성 필요. value: 카카오 디벨로퍼에서 어플리케이션 생성 후 JavaScript 키 발급
+  const subwayText = `2호선 한양대역 1번 출구 → 한양대병원 방향 도보 5분
+                      5호선 왕십리역 6번 출구 → 한양대병원 방향 도보 5분`;
+  const busText = `지선  2012 2013 2014 2220 2222 2411 2016
+                   간선  263 302 371`;
+  const parkingText = `건물 주차장 또는 병원 주차장 이용 시 90분 무료
+                       * 이후 추가요금 발생`;
 
   // 날짜 및 시간 파싱 함수
   function parseDateTime(dateTime: string): {
@@ -97,6 +103,9 @@ export function WeddingInvitation() {
         weddingHall={weddingHall}
         address={address}
         kakaoMapjavaScriptKey={kakaoMapjavaScriptKey}
+        subwayText={subwayText}
+        busText={busText}
+        parkingText={parkingText}
       />
     </div>
   );

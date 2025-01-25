@@ -7,9 +7,12 @@ type DirectionsProps = {
   weddingHall: string;
   address: string;
   kakaoMapjavaScriptKey: string;
+  subwayText: string;
+  busText: string;
+  parkingText: string;
 };
 
-export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMapjavaScriptKey }: DirectionsProps) {
+export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMapjavaScriptKey, subwayText, busText, parkingText }: DirectionsProps) {
   useEffect(() => {
     const mapScript = document.createElement("script"); // <script> 태그 생성
 
@@ -65,17 +68,45 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
 
   return (
     <div>
+      {/* 인사말 고정 부분 */}
       <div className="header">
         <h2 className="header-title">오시는 길</h2>
         <hr className="header-line" />
       </div>
+      {/* 예식 장소 */}
       <div className={styles.weddingVenueContainer}>
         <p className={styles.weddingVenueText}>{weddingVenue}</p>
         <p className={styles.weddingVenueText}>
           {floor} {weddingHall}
         </p>
       </div>
+      {/* Kakao Map */}
       <div id="map" className={styles.mapContainer}></div>
+      {/* 오는 길 */}
+      <div className={styles.directionsContainer}>
+        <div>
+          <h2 className={styles.addressHeader}>주소</h2>
+          <p className={styles.address}>{address}</p>
+        </div>
+        {subwayText && (
+          <div>
+            <h2 className={styles.subwayHeader}>지하철</h2>
+            <p className={styles.subwayText}>{subwayText}</p>
+          </div>
+        )}
+        {busText && (
+          <div>
+            <h2 className={styles.busHeader}>버스</h2>
+            <p className={styles.busText}>{busText}</p>
+          </div>
+        )}
+        {parkingText && (
+          <div>
+            <h2 className={styles.parkingHeader}>주차</h2>
+            <p className={styles.parkingText}>{parkingText}</p>
+        </div>
+        )}
+      </div>
     </div>
   );
 }
