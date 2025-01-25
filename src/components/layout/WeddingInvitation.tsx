@@ -28,7 +28,7 @@ export function WeddingInvitation() {
   const greetingMessage = `서로의 소중함을 느끼며 함께한 시간 속에서\n저희 두 사람은 평생을 함께하고자 결혼을 약속하게 되었습니다.\n
                            저희의 새로운 시작을 축복으로 함께해 주신다면\n큰 기쁨과 감사로 기억하겠습니다.\n
                            소중한 날에 따뜻한 마음으로 함께해 주세요.`;
-  const kakaoMapjavaScriptKey = 'b60269d99a7e6454b0390c8b10f181ca'; // 참고) 카카오 디벨로퍼에서 어플리케이션 생성 후 JavaScript 키 발급
+  const kakaoMapjavaScriptKey = process.env.REACT_APP_KAKAO_API_KEY as string;  // 참고) root에서 .env 파일만들어 생성 필요. value: 카카오 디벨로퍼에서 어플리케이션 생성 후 JavaScript 키 발급
 
   // 날짜 및 시간 파싱 함수
   function parseDateTime(dateTime: string): {
