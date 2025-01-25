@@ -66,6 +66,22 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
     };
   }, [address, kakaoMapjavaScriptKey]);
 
+  const handleMapClick = (platform: "kakao" | "naver") => {
+    const encodedAddress = encodeURIComponent(address);
+    let url = "";
+
+    switch (platform) {
+      case "kakao":
+        url = `https://map.kakao.com/link/search/${encodedAddress}`;
+        break;
+      case "naver":
+        url = `https://map.naver.com/v5/search/${encodedAddress}`;
+        break;
+    }
+
+    window.open(url, "_blank");
+  };  
+
   return (
     <div>
       {/* 인사말 고정 부분 */}
@@ -107,6 +123,12 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
         </div>
         )}
       </div>
+      {/* 맵 서비스 버튼 */}
+      <div className={styles.mapButtons}>
+        {/* Icon 따기 */}
+        <button onClick={() => handleMapClick("kakao")}>카카오맵</button>
+        <button onClick={() => handleMapClick("naver")}>네이버지도</button>
+      </div>      
     </div>
   );
 }

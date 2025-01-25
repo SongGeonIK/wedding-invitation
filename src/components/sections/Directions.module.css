@@ -34,3 +34,25 @@
     font-weight: normal;
     white-space: pre-line; /* 줄바꿈 처리 */
   }
+
+  .mapButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .mapButtons button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #007b5e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mapButtons button:hover {
+    background-color: #005f47;
+  }
+  
