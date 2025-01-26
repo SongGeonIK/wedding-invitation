@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import styles from "./Directions.module.css";
+import KakaoMapLogo from '../../assets/images/logos/kakaomap-basic.png';
+import NaverMapLogo from '../../assets/images/logos/navermap-logo.png';
 
 type DirectionsProps = {
   weddingVenue: string;
@@ -98,6 +100,17 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
       </div>
       {/* Kakao Map */}
       <div id="map" className={styles.mapContainer}></div>
+      {/* 맵 서비스 버튼 */}
+      <div className={styles.mapButtons}>
+        <button onClick={() => handleMapClick("kakao")}>
+          <img src={KakaoMapLogo} alt="카카오맵" />
+          <h4>카카오맵</h4>
+        </button>
+        <button onClick={() => handleMapClick("naver")}>
+          <img src={NaverMapLogo} alt="네이버맵" />
+          <h4>네이버맵</h4>
+        </button>
+      </div>   
       {/* 오는 길 */}
       <div className={styles.directionsContainer}>
         <div>
@@ -123,12 +136,6 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
         </div>
         )}
       </div>
-      {/* 맵 서비스 버튼 */}
-      <div className={styles.mapButtons}>
-        {/* Icon 따기 */}
-        <button onClick={() => handleMapClick("kakao")}>카카오맵</button>
-        <button onClick={() => handleMapClick("naver")}>네이버지도</button>
-      </div>      
     </div>
   );
 }
