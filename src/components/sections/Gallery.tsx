@@ -15,6 +15,7 @@ export function Gallery() {
   const [thumbnails, setThumbnails] = useState<string[]>([]);
   const [resizedImages, setResizedImages] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0); // 스크롤 위치 저장
 
   const images = [
     gallery1,
@@ -78,8 +79,6 @@ export function Gallery() {
     const currentIndex = resizedImages.indexOf(selectedImage!);
     const nextIndex = (currentIndex + 1) % resizedImages.length;
     setSelectedImage(resizedImages[nextIndex]);
-
-    console.log('resizedImages.length >> ', resizedImages.length, 'nextIndex >> ' , nextIndex);
   };
 
   const handlePrevImage = () => {
@@ -87,9 +86,24 @@ export function Gallery() {
     const prevIndex =
       (currentIndex - 1 + resizedImages.length) % resizedImages.length;
     setSelectedImage(resizedImages[prevIndex]);
-
-    console.log('resizedImages.length >> ', resizedImages.length, 'prevIndex >> ' , prevIndex);
   };
+
+  const openModal = () => {
+    setScrollPosition(window.scrollY); // 현재 스크롤 위치 저장
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden"; // 스크롤 잠금
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = ""; // 스크롤 잠금 해제
+  };
+
+  useEffect(() => {
+    if (!isModalOpen) {
+      window.scrollTo(0, scrollPosition); // 모달이 닫힌 후 스크롤 위치 복원
+    }
+  }, [isModalOpen]); // isModalOpen 변경을 감지
 
   return (
     <div>
@@ -106,7 +120,7 @@ export function Gallery() {
                 src={selectedImage}
                 alt="Main View"
                 className={styles.mainImage}
-                onClick={() => setIsModalOpen(true)}
+                onClick={openModal} // 모달 열기
               />
             )}
           </div>
@@ -133,14 +147,12 @@ export function Gallery() {
 
       {isModalOpen && (
         <div className={styles.modal}>
-          {/* 왼쪽 꺽쇠('<') 표시 */}
           <button
             className={`${styles.navButton} ${styles.left}`}
             onClick={handlePrevImage}
           >
             &lt;
           </button>
-          {/* 모달 이미지 */}
           {selectedImage && (
             <img
               src={selectedImage}
@@ -148,18 +160,13 @@ export function Gallery() {
               className={styles.mainImage}
             />
           )}
-          {/* 오른쪽 꺽쇠('>') 표시 */}
           <button
             className={`${styles.navButton} ${styles.right}`}
             onClick={handleNextImage}
           >
             &gt;
           </button>
-          {/* 닫기 버튼 (css 스타일로 '×' 표시) */}
-          <button
-            className={styles.closeButton}
-            onClick={() => setIsModalOpen(false)}
-          />
+          <button className={styles.closeButton} onClick={closeModal} />
         </div>
       )}
     </div>
