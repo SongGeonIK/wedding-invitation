@@ -1,17 +1,26 @@
 {
   "files": {
-    "main.css": "/wedding-invitation/static/css/main.e8010ee2.css",
-    "main.js": "/wedding-invitation/static/js/main.32a33624.js",
+    "main.css": "/wedding-invitation/static/css/main.33ed72ad.css",
+    "main.js": "/wedding-invitation/static/js/main.e45c9ca2.js",
     "static/media/rose-flower.svg": "/wedding-invitation/static/media/rose-flower.ae47eb27a2969d6ae90a5c1df88761fd.svg",
+    "static/media/1.jpg": "/wedding-invitation/static/media/1.e0f88e82f874f9753de9.jpg",
+    "static/media/8.jpg": "/wedding-invitation/static/media/8.4c461276896f3e2719ee.jpg",
+    "static/media/3.jpg": "/wedding-invitation/static/media/3.ae3673eb8af1cbb5985e.jpg",
+    "static/media/9.jpg": "/wedding-invitation/static/media/9.bd471966b5bbcd938d5f.jpg",
+    "static/media/5.jpg": "/wedding-invitation/static/media/5.a934899aef9c26f070f1.jpg",
+    "static/media/6.jpg": "/wedding-invitation/static/media/6.791f10c2a9accd56306b.jpg",
+    "static/media/7.jpg": "/wedding-invitation/static/media/7.fa2c6e4530a6119d7cce.jpg",
+    "static/media/2.jpg": "/wedding-invitation/static/media/2.76848d62cc2c73c21523.jpg",
+    "static/media/4.jpg": "/wedding-invitation/static/media/4.ba7cbee316c197e92246.jpg",
     "static/media/main-image.jpg": "/wedding-invitation/static/media/main-image.8af07d717d440e0d7ec1.jpg",
     "static/media/navermap-logo.png": "/wedding-invitation/static/media/navermap-logo.1c51f19ae57060877d58.png",
     "static/media/kakaomap-basic.png": "/wedding-invitation/static/media/kakaomap-basic.b6bf66996c6904da94bf.png",
     "index.html": "/wedding-invitation/index.html",
-    "main.e8010ee2.css.map": "/wedding-invitation/static/css/main.e8010ee2.css.map",
-    "main.32a33624.js.map": "/wedding-invitation/static/js/main.32a33624.js.map"
+    "main.33ed72ad.css.map": "/wedding-invitation/static/css/main.33ed72ad.css.map",
+    "main.e45c9ca2.js.map": "/wedding-invitation/static/js/main.e45c9ca2.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8010ee2.css",
-    "static/js/main.32a33624.js"
+    "static/css/main.33ed72ad.css",
+    "static/js/main.e45c9ca2.js"
   ]
 }
