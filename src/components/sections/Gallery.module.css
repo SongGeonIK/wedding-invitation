@@ -9,7 +9,7 @@
     border: 0px;
     border-radius: 8px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 107, 138, 0.05);
   }
   
   /* 메인 이미지 뷰 */
@@ -47,7 +47,7 @@
   }
   
   .thumbnailContainer::-webkit-scrollbar-thumb {
-    background-color: #ccc; /* 스크롤바 색상 */
+    background-color: rgba(255, 107, 138, 0.2); /* 스크롤바 색상 */
     border-radius: 4px;
   }
   
@@ -79,7 +79,8 @@
   }
   
   .thumbnailButton.active .thumbnailImage {
-    border-color: #007bff; /* 선택된 이미지 강조 색상 */
+    border-color: #007b5e; /* 선택된 이미지 강조 색상 */
+    transform: scale(1.2);
   }
   
   .modal {
@@ -103,18 +104,25 @@
   }
   
   /* 모달 네비게이션 버튼 공통 스타일 */
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1001;
-  padding: 10px;
-}
+  .navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
 
 /* 왼쪽 네비게이션 버튼 */
 .navButton.left {
@@ -133,19 +141,30 @@
   
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+  top: 30px;
+  right: 5px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
   border: none;
   color: white;
-  font-size: 1.5rem;
   cursor: pointer;
   z-index: 1001;
+  padding: 0; 
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  color: #ccc;
 }
 
 .closeButton::after {
   display: inline-block;
   content: "\00d7"; 
-  font-size:20pt;
+  font-size: 2rem;
 }
   
