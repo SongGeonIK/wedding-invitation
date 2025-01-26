@@ -3,6 +3,7 @@ import { Greeting } from '../sections/Greeting';
 import { MainImage } from '../sections/MainImage';
 import { WeddingDateTime } from '../sections/WeddingDateTime';
 import { Directions } from '../sections/Directions';
+import { Gallery } from '../sections/Gallery';
 
 export function WeddingInvitation() {
   // 커스텀 입력
@@ -21,7 +22,7 @@ export function WeddingInvitation() {
     motherName: '최영란',
   };
   const dateTime = '2025년 01월 16일 14시 30분'; // yyyy년 MM월 dd일 HH시 mm분
-  const address = '서울 강서구 마곡동 760';
+  const address = '서울 강서구 마곡중앙5로 6 보타닉푸르지오시티 L층(로비층)';
   const weddingVenue = '웨딩 장소';
   const floor = 'n층';
   const weddingHall = 'OOO홀';
@@ -107,6 +108,8 @@ export function WeddingInvitation() {
         busText={busText}
         parkingText={parkingText}
       />
+      {/* 갤러리 */}
+      <Gallery />
     </div>
   );
 }
