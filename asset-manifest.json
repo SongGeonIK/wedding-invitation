@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/wedding-invitation/static/css/main.571b3fc2.css",
+    "main.css": "/wedding-invitation/static/css/main.9f8d954d.css",
     "main.js": "/wedding-invitation/static/js/main.232969ba.js",
     "static/media/rose-flower.svg": "/wedding-invitation/static/media/rose-flower.ae47eb27a2969d6ae90a5c1df88761fd.svg",
     "static/media/1.jpg": "/wedding-invitation/static/media/1.e0f88e82f874f9753de9.jpg",
@@ -16,11 +16,11 @@
     "static/media/navermap-logo.png": "/wedding-invitation/static/media/navermap-logo.1c51f19ae57060877d58.png",
     "static/media/kakaomap-basic.png": "/wedding-invitation/static/media/kakaomap-basic.b6bf66996c6904da94bf.png",
     "index.html": "/wedding-invitation/index.html",
-    "main.571b3fc2.css.map": "/wedding-invitation/static/css/main.571b3fc2.css.map",
+    "main.9f8d954d.css.map": "/wedding-invitation/static/css/main.9f8d954d.css.map",
     "main.232969ba.js.map": "/wedding-invitation/static/js/main.232969ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.571b3fc2.css",
+    "static/css/main.9f8d954d.css",
     "static/js/main.232969ba.js"
   ]
 }
