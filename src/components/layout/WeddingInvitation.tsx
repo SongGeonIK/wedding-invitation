@@ -4,22 +4,62 @@ import { MainImage } from '../sections/MainImage';
 import { WeddingDateTime } from '../sections/WeddingDateTime';
 import { Directions } from '../sections/Directions';
 import { Gallery } from '../sections/Gallery';
+import { GiftInfo } from '../sections/GiftInfo';
 
 export function WeddingInvitation() {
-  // 커스텀 입력
+  // 신랑측 정보
   const groom = {
-    lastName: '송',
-    firstName: '건익',
-    title: '장남',
-    fatherName: '송인성',
-    motherName: '김복자',
+    lastName: process.env.REACT_APP_GROOM_LAST_NAME as string,
+    firstName: process.env.REACT_APP_GROOM_FIRST_NAME as string,
+    brithOrder: process.env.REACT_APP_GROOM_BRITH_ORDER as string,
+    bank: {
+      name: process.env.REACT_APP_GROOM_BANK_NAME as string,
+      accountNumber: process.env.REACT_APP_GROOM_BANK_ACCOUNT_NUMBER as string,
+      kakaoPayAvailable: parseBoolean(process.env.REACT_APP_GROOM_KAKAO_PAY_AVAILABLE),
+    },
+    father: {
+      name: process.env.REACT_APP_GROOM_FATHER_NAME as string,
+      bank: {
+        name: process.env.REACT_APP_GROOM_FATHER_BANK_NAME as string,
+        accountNumber: process.env.REACT_APP_GROOM_FATHER_BANK_ACCOUNT_NUMBER as string,
+        kakaoPayAvailable: parseBoolean(process.env.REACT_APP_GROOM_FATHER_KAKAO_PAY_AVAILABLE),
+      },
+    },
+    mother: {
+      name: process.env.REACT_APP_GROOM_MOTHER_NAME as string,
+      bank: {
+        name: process.env.REACT_APP_GROOM_MOTHER_BANK_NAME as string,
+        accountNumber: process.env.REACT_APP_GROOM_MOTHER_BANK_ACCOUNT_NUMBER as string,
+        kakaoPayAvailable: parseBoolean(process.env.REACT_APP_GROOM_MOTHER_KAKAO_PAY_AVAILABLE),
+      },
+    }
   };
+  // 신부측 정보
   const bride = {
-    lastName: '이',
-    firstName: '지수',
-    title: '차녀',
-    fatherName: '이민창',
-    motherName: '최영란',
+    lastName: process.env.REACT_APP_BRIDE_LAST_NAME as string,
+    firstName: process.env.REACT_APP_BRIDE_FIRST_NAME as string,
+    brithOrder: process.env.REACT_APP_BRIDE_BRITH_ORDER as string,
+    bank: {
+      name: process.env.REACT_APP_BRIDE_BANK_NAME as string,
+      accountNumber: process.env.REACT_APP_BRIDE_BANK_ACCOUNT_NUMBER as string,
+      kakaoPayAvailable: parseBoolean(process.env.REACT_APP_BRIDE_KAKAO_PAY_AVAILABLE),
+    },
+    father: {
+      name: process.env.REACT_APP_BRIDE_FATHER_NAME as string,
+      bank: {
+        name: process.env.REACT_APP_BRIDE_FATHER_BANK_NAME as string,
+        accountNumber: process.env.REACT_APP_BRIDE_FATHER_BANK_ACCOUNT_NUMBER as string,
+        kakaoPayAvailable: parseBoolean(process.env.REACT_APP_BRIDE_FATHER_KAKAO_PAY_AVAILABLE),
+      },
+    },
+    mother: {
+      name: process.env.REACT_APP_BRIDE_MOTHER_NAME as string,
+      bank: {
+        name: process.env.REACT_APP_BRIDE_MOTHER_BANK_NAME as string,
+        accountNumber: process.env.REACT_APP_BRIDE_MOTHER_BANK_ACCOUNT_NUMBER as string,
+        kakaoPayAvailable: parseBoolean(process.env.REACT_APP_BRIDE_MOTHER_KAKAO_PAY_AVAILABLE),
+      },
+    }
   };
   const dateTime = '2025년 01월 16일 14시 30분'; // yyyy년 MM월 dd일 HH시 mm분
   const address = '서울 강서구 마곡중앙5로 6 보타닉푸르지오시티 L층(로비층)';
@@ -36,6 +76,10 @@ export function WeddingInvitation() {
                    간선  263 302 371`;
   const parkingText = `건물 주차장 또는 병원 주차장 이용 시 90분 무료
                        * 이후 추가요금 발생`;
+
+  function parseBoolean(envVar: string | undefined): boolean {
+    return envVar?.toLowerCase() === 'true';
+  }
 
   // 날짜 및 시간 파싱 함수
   function parseDateTime(dateTime: string): {
@@ -79,13 +123,13 @@ export function WeddingInvitation() {
       />
       {/* 인사말 */}
       <Greeting
-        groom={groom.firstName}
-        bride={bride.firstName}
-        groomTitle={groom.title}
-        brideTitle={bride.title}
+        groomFirstName={groom.firstName}
+        brideFirstName={bride.firstName}
+        groomBrithOrder={groom.brithOrder}
+        brideBrithOrder={bride.brithOrder}
         parents={{
-          groomParents: `${groom.fatherName} · ${groom.motherName}`,
-          brideParents: `${bride.fatherName} · ${bride.motherName}`,
+          groomParents: `${groom.father.name} · ${groom.mother.name}`,
+          brideParents: `${bride.father.name} · ${bride.mother.name}`,
         }}
         message={greetingMessage}
       />
@@ -110,6 +154,33 @@ export function WeddingInvitation() {
       />
       {/* 갤러리 */}
       <Gallery />
+      {/* 마음 전하실 곳 */}
+      {/* <GiftInfo
+        groomInfo={{
+          name: `${groom.lastName}${groom.firstName}`,
+          bank: groom.bank, // bankInfo 타입 일치
+          father: {
+            name: groom.father.name,
+            bank: groom.father.bank, // bankInfo 타입 일치
+          },
+          mother: {
+            name: groom.mother.name,
+            bank: groom.mother.bank, // bankInfo 타입 일치
+          },
+        }}
+        brideInfo={{
+          name: `${bride.lastName}${bride.firstName}`,
+          bank: bride.bank, // bankInfo 타입 일치
+          father: {
+            name: bride.father.name,
+            bank: bride.father.bank, // bankInfo 타입 일치
+          },
+          mother: {
+            name: bride.mother.name,
+            bank: bride.mother.bank, // bankInfo 타입 일치
+          },
+        }}
+      /> */}
     </div>
   );
 }

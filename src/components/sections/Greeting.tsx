@@ -4,10 +4,10 @@ import RoseFlower from '../../assets/images/rose-flower.svg';
 import styles from './Greeting.module.css';
 
 type GreetingProps = {
-  bride: string;
-  groom: string;
-  groomTitle: string; // 신랑의 직함 (예: 차남)
-  brideTitle: string; // 신부의 직함 (예: 장녀)
+  groomFirstName: string;
+  brideFirstName: string;
+  groomBrithOrder: string; // 신랑의 직함 (예: 차남)
+  brideBrithOrder: string; // 신부의 직함 (예: 장녀)
   parents: {
     groomParents: string; // 신랑 부모님
     brideParents: string; // 신부 부모님
@@ -16,10 +16,10 @@ type GreetingProps = {
 };
 
 export function Greeting({
-  groom,
-  bride,
-  groomTitle,
-  brideTitle,
+  groomFirstName,
+  brideFirstName,
+  groomBrithOrder,
+  brideBrithOrder,
   parents,
   message,
 }: GreetingProps) {
@@ -42,8 +42,8 @@ export function Greeting({
 
         {/* 부모님 정보 */}
         <div className={styles.parents}>
-          <p>{parents.groomParents}의 {groomTitle} <strong>{groom}</strong></p>
-          <p>{parents.brideParents}의 {brideTitle} <strong>{bride}</strong></p>
+          <p>{parents.groomParents}의 {groomBrithOrder} <strong>{groomFirstName}</strong></p>
+          <p>{parents.brideParents}의 {brideBrithOrder} <strong>{brideFirstName}</strong></p>
         </div>
       </div>
     </div>
