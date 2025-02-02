@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+### **`환경변수 값 입력 설명서`**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+해당 프로젝트에서는 보안을 위해 .env 파일을 생성하여 환경변수로 관리를 하고 있습니다.
+package.json의 파일 경로와 동일한 위치로 .env 파일을 생성해주세요
+.env의 변수 값은 아래와 같으며 생성한 .env파일에 아래 내용을 복사하여 값을 입력하는 방법으로 사용해주세요.
 
-## Available Scripts
+![.env 파일 경로 이미지](./src/assets/images/.env-path.jpg)
 
-In the project directory, you can run:
+### `.env 파일 설정 안내`
 
-### `npm start`
+```ini
+# Open API
+REACT_APP_SK_API_KEY=           # TMAP javascript API (현재 개발 없음)
+REACT_APP_KAKAO_API_KEY=        # Kakao javascript api key (kakao developer에서 app 생성 후 발급 필요)
+REACT_APP_API_BASE_URL=         # github io url
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 신랑 개인 정보
+REACT_APP_GROOM_LAST_NAME=  # 신랑 성
+REACT_APP_GROOM_FIRST_NAME= # 신랑 이름
+REACT_APP_GROOM_BRITH_ORDER=    # 신랑 태어난 순서 예) 장남, 차남
+REACT_APP_GROOM_BANK_NAME=  # 신랑 은행이름
+REACT_APP_GROOM_BANK_ACCOUNT_NUMBER=    # 신랑 은행 계좌번호
+REACT_APP_GROOM_KAKAO_PAY_AVAILABLE=    # 신랑 카카오페이 사용: true, 미사용: false
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 신랑 아버지 정보
+REACT_APP_GROOM_FATHER_NAME=    # 신랑 아버지 성
+REACT_APP_GROOM_FATHER_BANK_NAME=   # 신랑 아버지 은행이름
+REACT_APP_GROOM_FATHER_BANK_ACCOUNT_NUMBER= # 신랑 아버지 은행 계좌번호
+REACT_APP_GROOM_FATHER_KAKAO_PAY_AVAILABLE= # 신랑 아버지 카카오페이 사용: true, 미사용: false
 
-### `npm test`
+# 신랑 어머니 정보
+REACT_APP_GROOM_MOTHER_NAME=    # 신랑 어머니 성
+REACT_APP_GROOM_MOTHER_BANK_NAME=   # 신랑 어머니 은행이름
+REACT_APP_GROOM_MOTHER_BANK_ACCOUNT_NUMBER= # 신랑 어머니 은행 계좌번호
+REACT_APP_GROOM_MOTHER_KAKAO_PAY_AVAILABLE= # 신랑 어머니 카카오페이 사용: true, 미사용: false
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 신부 개인 정보
+REACT_APP_BRIDE_LAST_NAME=  # 신부 성
+REACT_APP_BRIDE_FIRST_NAME= # 신부 이름
+REACT_APP_BRIDE_BRITH_ORDER=    # 신부 태어난 순서 예) 장남, 차남
+REACT_APP_BRIDE_BANK_NAME=  # 신부 은행이름
+REACT_APP_BRIDE_BANK_ACCOUNT_NUMBER=    # 신부 은행 계좌번호
+REACT_APP_BRIDE_KAKAO_PAY_AVAILABLE=    # 신부 카카오페이 사용: true, 미사용: false
 
-### `npm run build`
+# 신부 아버지 정보
+REACT_APP_BRIDE_FATHER_NAME=    # 신부 아버지 성
+REACT_APP_BRIDE_FATHER_BANK_NAME=   # 신부 아버지 은행이름
+REACT_APP_BRIDE_FATHER_BANK_ACCOUNT_NUMBER= # 신부 아버지 은행 계좌번호
+REACT_APP_BRIDE_FATHER_KAKAO_PAY_AVAILABLE= # 신부 아버지 카카오페이 사용: true, 미사용: false
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 신부 어머니 정보
+REACT_APP_BRIDE_MOTHER_NAME=    # 신부 어머니 성
+REACT_APP_BRIDE_MOTHER_BANK_NAME=   # 신부 어머니 은행이름
+REACT_APP_BRIDE_MOTHER_BANK_ACCOUNT_NUMBER= # 신부 어머니 은행 계좌번호
+REACT_APP_BRIDE_MOTHER_KAKAO_PAY_AVAILABLE= # 신부 어머니 카카오페이 사용: true, 미사용: false
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
