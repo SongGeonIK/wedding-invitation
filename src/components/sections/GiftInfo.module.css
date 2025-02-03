@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .section {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .header {
+    background: #E6E6FA;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .header.expanded {
+    background: #DFF8EB;
+  }
+  
+  .content {
+    background: #ffffff;
+    padding: 15px;
+  }
+  
+  .person, .parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .copyButton {
+    background: #f2f2f2;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .kakaoPay {
+    background: none; 
+    border: none;
+    padding: 0; 
+    cursor: pointer;
+    display: inline-block; /* 이미지 크기에 맞게 버튼 크기 조절 */
+  }  
+  
+  .kakaoPay img {
+    width: 50px;
+    height: auto;
+  }
+
+  .footer {
+    font-size: 14px;
+    font-weight: lighter;
+  }
+  

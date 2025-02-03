@@ -155,32 +155,32 @@ export function WeddingInvitation() {
       {/* 갤러리 */}
       <Gallery />
       {/* 마음 전하실 곳 */}
-      {/* <GiftInfo
+      <GiftInfo
         groomInfo={{
           name: `${groom.lastName}${groom.firstName}`,
-          bank: groom.bank, // bankInfo 타입 일치
+          bank: groom.bank, 
           father: {
             name: groom.father.name,
-            bank: groom.father.bank, // bankInfo 타입 일치
+            bank: groom.father.bank, 
           },
           mother: {
             name: groom.mother.name,
-            bank: groom.mother.bank, // bankInfo 타입 일치
+            bank: groom.mother.bank,
           },
         }}
         brideInfo={{
           name: `${bride.lastName}${bride.firstName}`,
-          bank: bride.bank, // bankInfo 타입 일치
+          bank: bride.bank,
           father: {
             name: bride.father.name,
-            bank: bride.father.bank, // bankInfo 타입 일치
+            bank: bride.father.bank,
           },
           mother: {
             name: bride.mother.name,
-            bank: bride.mother.bank, // bankInfo 타입 일치
+            bank: bride.mother.bank,
           },
         }}
-      /> */}
+      />
     </div>
   );
 }
