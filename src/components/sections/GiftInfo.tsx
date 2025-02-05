@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './GiftInfo.module.css';
 import KakaoPay from '../../assets/images/logos/kakaopay.png';
+import { Toaster, toast } from "react-hot-toast";
 
 type BankInfo = {
   name: string;
@@ -30,7 +31,8 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
   const [brideExpanded, setBrideExpanded] = useState(false);
 
   return (
-    <div>      
+    <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="header">
         <h2 className="header-title">마음 전하실 곳</h2>
         <hr className="header-line" />
@@ -79,6 +81,19 @@ type AccountInfoProps = {
   person: FamilyMemberInfo;
 };
 
+const handleAccountCopy = (account: string) => {
+  navigator.clipboard.writeText(account)
+  .then(() => {
+    toast.success("복사 완료: 계좌번호가 복사되었습니다.", {
+      duration: 2000, // 2초 후 자동 사라짐
+      position: "top-center",
+    });
+  })
+  .catch(() => {
+    toast.error("복사 실패. 다시 시도해주세요.");
+  });
+}
+
 const AccountInfo = ({ person }: AccountInfoProps) => (
   <div>
     <div className={styles.personContainer}>
@@ -86,7 +101,11 @@ const AccountInfo = ({ person }: AccountInfoProps) => (
 
       <div className={styles.accountContainer}>
           <span>{person.bank.name} {person.bank.accountNumber}</span>
-          <button className={styles.copyButton}>📄 계좌번호 복사</button>
+          <button className={styles.copyButton}
+                  onClick={() => handleAccountCopy(`${person.bank.name} ${person.bank.accountNumber}`)}
+          >
+            📄 계좌번호 복사
+          </button>
           {person.bank.kakaoPayAvailable && (
             <button className={styles.kakaoPay}>
               <img src={KakaoPay} alt="카카오페이" />
@@ -101,7 +120,11 @@ const AccountInfo = ({ person }: AccountInfoProps) => (
 
         <div className={styles.accountContainer}>
           <span>{person.father.bank.name} {person.father.bank.accountNumber}</span>
-          <button className={styles.copyButton}>📄 계좌번호 복사</button>
+          <button className={styles.copyButton}
+                  onClick={() => handleAccountCopy(`${person.father?.bank.name} ${person.father?.bank.accountNumber}`)}
+          >
+            📄 계좌번호 복사
+          </button>
           {person.father.bank.kakaoPayAvailable && (
             <button className={styles.kakaoPay}>
               <img src={KakaoPay} alt="카카오페이" />
@@ -117,7 +140,11 @@ const AccountInfo = ({ person }: AccountInfoProps) => (
 
         <div className={styles.accountContainer}>
           <span>{person.mother.bank.name} {person.mother.bank.accountNumber}</span>
-          <button className={styles.copyButton}>📄 계좌번호 복사</button>
+          <button className={styles.copyButton}
+                  onClick={() => handleAccountCopy(`${person.mother?.bank.name} ${person.mother?.bank.accountNumber}`)}
+          >
+            📄 계좌번호 복사
+          </button>
           {person.mother.bank.kakaoPayAvailable && (
             <button className={styles.kakaoPay}>
               <img src={KakaoPay} alt="카카오페이" />
