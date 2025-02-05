@@ -16,7 +16,7 @@ type ParentsInfo = {
 type FamilyMemberInfo = {
   name: string;
   bank: BankInfo;
-  father: ParentsInfo;
+  father?: ParentsInfo;
   mother?: ParentsInfo;
 };
 
@@ -43,7 +43,7 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
             className={`${styles.header} ${groomExpanded ? styles.expanded : ''}`}
             onClick={() => setGroomExpanded(!groomExpanded)}
           >
-            신랑측 확인하기 <span>{groomExpanded ? '▲' : '▼'}</span>
+            신랑측 계좌번호 확인하기 <span>{groomExpanded ? '▲' : '▼'}</span>
           </div>
           {groomExpanded && (
             <div className={styles.content}>
@@ -58,7 +58,7 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
             className={`${styles.header} ${brideExpanded ? styles.expanded : ''}`}
             onClick={() => setBrideExpanded(!brideExpanded)}
           >
-            신부측 확인하기 <span>{brideExpanded ? '▲' : '▼'}</span>
+            신부측 계좌번호 확인하기 <span>{brideExpanded ? '▲' : '▼'}</span>
           </div>
           {brideExpanded && (
             <div className={styles.content}>
@@ -81,38 +81,49 @@ type AccountInfoProps = {
 
 const AccountInfo = ({ person }: AccountInfoProps) => (
   <div>
-    <div className={styles.person}>
+    <div className={styles.personContainer}>
       <span>{person.name}</span>
-      <span>{person.bank.name} {person.bank.accountNumber}</span>
-      {person.bank.kakaoPayAvailable && (
-        <button className={styles.kakaoPay}>
-          <img src={KakaoPay} alt="카카오페이" />
-        </button>
-      )}
-      <button className={styles.copyButton}>📄 계좌번호 복사</button>
+
+      <div className={styles.accountContainer}>
+          <span>{person.bank.name} {person.bank.accountNumber}</span>
+          <button className={styles.copyButton}>📄 계좌번호 복사</button>
+          {person.bank.kakaoPayAvailable && (
+            <button className={styles.kakaoPay}>
+              <img src={KakaoPay} alt="카카오페이" />
+            </button>
+          )}
+      </div>
     </div>
 
-    <div className={styles.parent}>
-      <span>아버지 {person.father.name}</span>
-      <span>{person.father.bank.name} {person.father.bank.accountNumber}</span>
-      {person.father.bank.kakaoPayAvailable && (
-        <button className={styles.kakaoPay}>
-          <img src={KakaoPay} alt="카카오페이" />
-        </button>
-      )}
-      <button className={styles.copyButton}>📄 계좌번호 복사</button>
-    </div>
+    {person.father && (
+      <div className={styles.parentContainer}>
+        <span>아버지 {person.father.name}</span>
+
+        <div className={styles.accountContainer}>
+          <span>{person.father.bank.name} {person.father.bank.accountNumber}</span>
+          <button className={styles.copyButton}>📄 계좌번호 복사</button>
+          {person.father.bank.kakaoPayAvailable && (
+            <button className={styles.kakaoPay}>
+              <img src={KakaoPay} alt="카카오페이" />
+            </button>
+          )}
+        </div>
+      </div>
+    )}
 
     {person.mother && (
-      <div className={styles.parent}>
+      <div className={styles.parentContainer}>
         <span>어머니 {person.mother.name}</span>
-        <span>{person.mother.bank.name} {person.mother.bank.accountNumber}</span>
-        {person.mother.bank.kakaoPayAvailable && (
-          <button className={styles.kakaoPay}>
-            <img src={KakaoPay} alt="카카오페이" />
-          </button>
-        )}
-        <button className={styles.copyButton}>📄 계좌번호 복사</button>
+
+        <div className={styles.accountContainer}>
+          <span>{person.mother.bank.name} {person.mother.bank.accountNumber}</span>
+          <button className={styles.copyButton}>📄 계좌번호 복사</button>
+          {person.mother.bank.kakaoPayAvailable && (
+            <button className={styles.kakaoPay}>
+              <img src={KakaoPay} alt="카카오페이" />
+            </button>
+          )}
+        </div>
       </div>
     )}
   </div>

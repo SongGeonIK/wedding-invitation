@@ -128,8 +128,20 @@ export function WeddingInvitation() {
         groomBrithOrder={groom.brithOrder}
         brideBrithOrder={bride.brithOrder}
         parents={{
-          groomParents: `${groom.father.name} · ${groom.mother.name}`,
-          brideParents: `${bride.father.name} · ${bride.mother.name}`,
+          groomParents: groom.father.name && groom.mother.name 
+          ? `${groom.father.name} · ${groom.mother.name}`
+          : groom.father.name 
+            ? `${groom.father.name}`
+            : groom.mother.name 
+              ? `${groom.mother.name}`
+              : '',        
+          brideParents: bride.father.name && bride.mother.name 
+          ? `${bride.father.name} · ${bride.mother.name}`
+          : bride.father.name 
+            ? `${bride.father.name}`
+            : bride.mother.name 
+              ? `${bride.mother.name}`
+              : '',
         }}
         message={greetingMessage}
       />
@@ -159,26 +171,26 @@ export function WeddingInvitation() {
         groomInfo={{
           name: `${groom.lastName}${groom.firstName}`,
           bank: groom.bank, 
-          father: {
+          father: groom.father.name ? {
             name: groom.father.name,
             bank: groom.father.bank, 
-          },
-          mother: {
+          } : undefined,
+          mother: groom.mother.name ? {
             name: groom.mother.name,
             bank: groom.mother.bank,
-          },
+          } : undefined,
         }}
         brideInfo={{
           name: `${bride.lastName}${bride.firstName}`,
           bank: bride.bank,
-          father: {
+          father: bride.father.name ? {
             name: bride.father.name,
             bank: bride.father.bank,
-          },
-          mother: {
+          } : undefined,
+          mother: bride.mother.name ? {
             name: bride.mother.name,
             bank: bride.mother.bank,
-          },
+          } : undefined,
         }}
       />
     </div>
