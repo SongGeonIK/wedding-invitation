@@ -11,7 +11,8 @@ package.json의 파일 경로와 동일한 위치로 .env 파일을 생성해주
 ```ini
 # Open API
 REACT_APP_SK_API_KEY=           # TMAP javascript API (현재 개발 없음)
-REACT_APP_KAKAO_API_KEY=        # Kakao javascript api key (kakao developer에서 app 생성 후 발급 필요)
+REACT_APP_KAKAO_API_KEY=        # Kakao javascript key (kakao developer에서 app 생성 후 발급 필요)
+REACT_APP_KAKAO_ADMIN_KEY=      # Kakao Admin key (kakao developer에서 app 생성 후 발급 필요)
 REACT_APP_API_BASE_URL=         # github io url
 
 # 신랑 개인 정보
@@ -21,18 +22,21 @@ REACT_APP_GROOM_BRITH_ORDER=    # 신랑 태어난 순서 예) 장남, 차남
 REACT_APP_GROOM_BANK_NAME=  # 신랑 은행이름
 REACT_APP_GROOM_BANK_ACCOUNT_NUMBER=    # 신랑 은행 계좌번호
 REACT_APP_GROOM_KAKAO_PAY_AVAILABLE=    # 신랑 카카오페이 사용: true, 미사용: false
+REACT_APP_GROOM_KAKAO_PAY_LINK=         # 신랑 카카오페이 송금 링크
 
 # 신랑 아버지 정보
 REACT_APP_GROOM_FATHER_NAME=    # 신랑 아버지 성함
 REACT_APP_GROOM_FATHER_BANK_NAME=   # 신랑 아버지 은행이름
 REACT_APP_GROOM_FATHER_BANK_ACCOUNT_NUMBER= # 신랑 아버지 은행 계좌번호
 REACT_APP_GROOM_FATHER_KAKAO_PAY_AVAILABLE= # 신랑 아버지 카카오페이 사용: true, 미사용: false
+REACT_APP_GROOM_FATHER_KAKAO_PAY_LINK=      # 신랑 아버지 카카오페이 송금 링크
 
 # 신랑 어머니 정보
 REACT_APP_GROOM_MOTHER_NAME=    # 신랑 어머니 성함
 REACT_APP_GROOM_MOTHER_BANK_NAME=   # 신랑 어머니 은행이름
 REACT_APP_GROOM_MOTHER_BANK_ACCOUNT_NUMBER= # 신랑 어머니 은행 계좌번호
 REACT_APP_GROOM_MOTHER_KAKAO_PAY_AVAILABLE= # 신랑 어머니 카카오페이 사용: true, 미사용: false
+REACT_APP_GROOM_MOTHER_KAKAO_PAY_LINK=      # 신랑 어머니 카카오페이 송금 링크
 
 # 신부 개인 정보
 REACT_APP_BRIDE_LAST_NAME=  # 신부 성
@@ -41,17 +45,20 @@ REACT_APP_BRIDE_BRITH_ORDER=    # 신부 태어난 순서 예) 장남, 차남
 REACT_APP_BRIDE_BANK_NAME=  # 신부 은행이름
 REACT_APP_BRIDE_BANK_ACCOUNT_NUMBER=    # 신부 은행 계좌번호
 REACT_APP_BRIDE_KAKAO_PAY_AVAILABLE=    # 신부 카카오페이 사용: true, 미사용: false
+REACT_APP_BRIDE_KAKAO_PAY_LINK=         # 신부 카카오페이 송금 링크
 
 # 신부 아버지 정보
 REACT_APP_BRIDE_FATHER_NAME=    # 신부 아버지 성함
 REACT_APP_BRIDE_FATHER_BANK_NAME=   # 신부 아버지 은행이름
 REACT_APP_BRIDE_FATHER_BANK_ACCOUNT_NUMBER= # 신부 아버지 은행 계좌번호
 REACT_APP_BRIDE_FATHER_KAKAO_PAY_AVAILABLE= # 신부 아버지 카카오페이 사용: true, 미사용: false
+REACT_APP_BRIDE_FATHER_KAKAO_PAY_LINK=      # 신부 아버지 카카오페이 송금 링크
 
 # 신부 어머니 정보
 REACT_APP_BRIDE_MOTHER_NAME=    # 신부 어머니 성함
 REACT_APP_BRIDE_MOTHER_BANK_NAME=   # 신부 어머니 은행이름
 REACT_APP_BRIDE_MOTHER_BANK_ACCOUNT_NUMBER= # 신부 어머니 은행 계좌번호
 REACT_APP_BRIDE_MOTHER_KAKAO_PAY_AVAILABLE= # 신부 어머니 카카오페이 사용: true, 미사용: false
+REACT_APP_BRIDE_MOTHER_KAKAO_PAY_LINK=      # 신부 어머니 카카오페이 송금 링크
 ```
 

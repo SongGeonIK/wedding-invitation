@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './GiftInfo.module.css';
 import KakaoPay from '../../assets/images/logos/kakaopay.png';
 import { Toaster, toast } from "react-hot-toast";
@@ -49,7 +49,7 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
           </div>
           {groomExpanded && (
             <div className={styles.content}>
-              <AccountInfo person={groomInfo} />
+              <AccountInfo person={groomInfo} side={Side.Groom} />
             </div>
           )}
         </div>
@@ -64,7 +64,7 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
           </div>
           {brideExpanded && (
             <div className={styles.content}>
-              <AccountInfo person={brideInfo} />
+              <AccountInfo person={brideInfo} side={Side.Bride} />
             </div>
           )}
         </div>
@@ -77,8 +77,14 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
   );
 }
 
+enum Side {
+  Groom = 1,
+  Bride = 2,
+}
+
 type AccountInfoProps = {
   person: FamilyMemberInfo;
+  side: Side;
 };
 
 const handleAccountCopy = (account: string) => {
@@ -94,64 +100,88 @@ const handleAccountCopy = (account: string) => {
   });
 }
 
-const AccountInfo = ({ person }: AccountInfoProps) => (
-  <div>
-    <div className={styles.personContainer}>
-      <span>{person.name}</span>
+const handleSendKakaoPay = (kakaoPayLink: string) => {
+  console.log('kakaoPayLink >>', kakaoPayLink );
+  if (kakaoPayLink) {
+    window.location.href = kakaoPayLink;
+  }
+};
 
-      <div className={styles.accountContainer}>
-          <span>{person.bank.name} {person.bank.accountNumber}</span>
-          <button className={styles.copyButton}
-                  onClick={() => handleAccountCopy(`${person.bank.name} ${person.bank.accountNumber}`)}
-          >
-            📄 계좌번호 복사
-          </button>
-          {person.bank.kakaoPayAvailable && (
-            <button className={styles.kakaoPay}>
-              <img src={KakaoPay} alt="카카오페이" />
-            </button>
-          )}
-      </div>
-    </div>
+export const AccountInfo = ({ person, side }: AccountInfoProps) => {
+    return (
+        <div>
+            <div className={styles.personContainer}>
+                <span>{person.name}</span>
 
-    {person.father && (
-      <div className={styles.parentContainer}>
-        <span>아버지 {person.father.name}</span>
+                <div className={styles.accountContainer}>
+                    <span>{person.bank.name} {person.bank.accountNumber}</span>
 
-        <div className={styles.accountContainer}>
-          <span>{person.father.bank.name} {person.father.bank.accountNumber}</span>
-          <button className={styles.copyButton}
-                  onClick={() => handleAccountCopy(`${person.father?.bank.name} ${person.father?.bank.accountNumber}`)}
-          >
-            📄 계좌번호 복사
-          </button>
-          {person.father.bank.kakaoPayAvailable && (
-            <button className={styles.kakaoPay}>
-              <img src={KakaoPay} alt="카카오페이" />
-            </button>
-          )}
+                    <button className={styles.copyButton}
+                            onClick={() => handleAccountCopy(`${person.bank.name} ${person.bank.accountNumber}`)}
+                    >
+                        📄 계좌번호 복사
+                    </button>
+
+                    {person.bank.kakaoPayAvailable && (
+                        <button className={styles.kakaoPay} 
+                                onClick={() => handleSendKakaoPay(side === Side.Groom
+                                                                  ? process.env.REACT_APP_GROOM_KAKAO_PAY_LINK as string
+                                                                  : process.env.REACT_APP_BRIDE_KAKAO_PAY_LINK as string)}>
+                            <img src={KakaoPay} alt="카카오페이" />
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            {person.father && (
+                <div className={styles.parentContainer}>
+                    <span>아버지 {person.father.name}</span>
+
+                    <div className={styles.accountContainer}>
+                        <span>{person.father.bank.name} {person.father.bank.accountNumber}</span>
+                        <button className={styles.copyButton}
+                                onClick={() => handleAccountCopy(`${person.father?.bank.name} ${person.father?.bank.accountNumber}`)}
+                        >
+                            📄 계좌번호 복사
+                        </button>
+
+                        {person.father.bank.kakaoPayAvailable && (
+                          <button className={styles.kakaoPay} 
+                                  onClick={() => handleSendKakaoPay(side === Side.Groom
+                                                                    ? process.env.REACT_APP_GROOM_FATHER_KAKAO_PAY_LINK as string
+                                                                    : process.env.REACT_APP_BRIDE_FATHER_KAKAO_PAY_LINK as string)}>
+                              <img src={KakaoPay} alt="카카오페이" />
+                          </button>
+                       )}                          
+                    </div>
+                </div>
+            )}
+
+            {person.mother && (
+                <div className={styles.parentContainer}>
+                    <span>어머니 {person.mother.name}</span>
+
+                    <div className={styles.accountContainer}>
+                        <span>{person.mother.bank.name} {person.mother.bank.accountNumber}</span>
+                        <button className={styles.copyButton}
+                                onClick={() => handleAccountCopy(`${person.mother?.bank.name} ${person.mother?.bank.accountNumber}`)}
+                        >
+                            📄 계좌번호 복사
+                        </button>
+
+                        {person.mother.bank.kakaoPayAvailable && (
+                          <button className={styles.kakaoPay} 
+                                  onClick={() => handleSendKakaoPay(side === Side.Groom
+                                                                    ? process.env.REACT_APP_GROOM_MOTHER_KAKAO_PAY_LINK as string
+                                                                    : process.env.REACT_APP_BRIDE_MOTHER_KAKAO_PAY_LINK as string)}>
+                              <img src={KakaoPay} alt="카카오페이" />
+                          </button>
+                       )}                        
+                    </div>
+                </div>
+            )}
         </div>
-      </div>
-    )}
+    );
+};
 
-    {person.mother && (
-      <div className={styles.parentContainer}>
-        <span>어머니 {person.mother.name}</span>
-
-        <div className={styles.accountContainer}>
-          <span>{person.mother.bank.name} {person.mother.bank.accountNumber}</span>
-          <button className={styles.copyButton}
-                  onClick={() => handleAccountCopy(`${person.mother?.bank.name} ${person.mother?.bank.accountNumber}`)}
-          >
-            📄 계좌번호 복사
-          </button>
-          {person.mother.bank.kakaoPayAvailable && (
-            <button className={styles.kakaoPay}>
-              <img src={KakaoPay} alt="카카오페이" />
-            </button>
-          )}
-        </div>
-      </div>
-    )}
-  </div>
-);
+// export default AccountInfo;
