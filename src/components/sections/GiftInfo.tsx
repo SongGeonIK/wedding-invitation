@@ -71,7 +71,7 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
       </div>
 
       <div className={styles.footer}>
-        <p>다양한 방법으로 감사를 전해주세요</p>
+        <p>다양한 방법으로 감사를 전해주세요.</p>
       </div>
     </div>
   );
@@ -111,7 +111,7 @@ export const AccountInfo = ({ person, side }: AccountInfoProps) => {
     return (
         <div>
             <div className={styles.personContainer}>
-                <span>{person.name}</span>
+                <span>{side === Side.Groom ? "신랑" : "신부"} {person.name}</span>
 
                 <div className={styles.accountContainer}>
                     <span>{person.bank.name} {person.bank.accountNumber}</span>
@@ -135,7 +135,7 @@ export const AccountInfo = ({ person, side }: AccountInfoProps) => {
 
             {person.father && (
                 <div className={styles.parentContainer}>
-                    <span>아버지 {person.father.name}</span>
+                    <span>{side === Side.Groom ? "신랑" : "신부"} 아버지 {person.father.name}</span>
 
                     <div className={styles.accountContainer}>
                         <span>{person.father.bank.name} {person.father.bank.accountNumber}</span>
@@ -159,7 +159,7 @@ export const AccountInfo = ({ person, side }: AccountInfoProps) => {
 
             {person.mother && (
                 <div className={styles.parentContainer}>
-                    <span>어머니 {person.mother.name}</span>
+                    <span>{side === Side.Groom ? "신랑" : "신부"} 어머니 {person.mother.name}</span>
 
                     <div className={styles.accountContainer}>
                         <span>{person.mother.bank.name} {person.mother.bank.accountNumber}</span>

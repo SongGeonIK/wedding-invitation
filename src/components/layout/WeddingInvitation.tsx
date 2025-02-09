@@ -5,6 +5,7 @@ import { WeddingDateTime } from '../sections/WeddingDateTime';
 import { Directions } from '../sections/Directions';
 import { Gallery } from '../sections/Gallery';
 import { GiftInfo } from '../sections/GiftInfo';
+import { InfoBoard } from '../sections/InfoBoard';
 
 export function WeddingInvitation() {
   // 신랑측 정보
@@ -76,6 +77,12 @@ export function WeddingInvitation() {
                    간선  263 302 371`;
   const parkingText = `건물 주차장 또는 병원 주차장 이용 시 90분 무료
                        * 이후 추가요금 발생`;
+  const infoMessages = [ // 메세지 list 로 표현
+    "신부대기실은 O층 세인트룸에 위치해있습니다.",
+    "식사는 뷔페식이 아닌 함께한상 브랜드의 한정식 한 상 차림입니다.",
+    "5세 이하의 어린이는 어린이 식권을 받아주시기 바랍니다. 6세 이상의 어린이는 성인과 동일한 식권을 사용합니다.",
+    "병원에 주차하신 분들은 예약실에서 주차권을 수령하시기 바랍니다.",
+  ];
 
   function parseBoolean(envVar: string | undefined): boolean {
     return envVar?.toLowerCase() === 'true';
@@ -193,6 +200,8 @@ export function WeddingInvitation() {
           } : undefined,
         }}
       />
+      {/* 안내사항 */}
+      <InfoBoard infoMessages={infoMessages} />
     </div>
   );
 }

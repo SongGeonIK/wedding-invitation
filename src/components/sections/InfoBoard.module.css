@@ -1,0 +1,30 @@
+.infoBoardList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  color: #444;
+}
+
+.infoBoardItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.infoBoardItemNumber {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: bold;
+  color: #666;
+  min-width: 20px;
+}
+
+.infoBoardItemText {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
