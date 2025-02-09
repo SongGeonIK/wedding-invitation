@@ -6,6 +6,7 @@ import { Directions } from '../sections/Directions';
 import { Gallery } from '../sections/Gallery';
 import { GiftInfo } from '../sections/GiftInfo';
 import { InfoBoard } from '../sections/InfoBoard';
+import { ClosingMessage } from '../sections/ClosingMessage';
 
 export function WeddingInvitation() {
   // 신랑측 정보
@@ -70,7 +71,6 @@ export function WeddingInvitation() {
   const greetingMessage = `서로의 소중함을 느끼며 함께한 시간 속에서\n저희 두 사람은 평생을 함께하고자 결혼을 약속하게 되었습니다.\n
                            저희의 새로운 시작을 축복으로 함께해 주신다면\n큰 기쁨과 감사로 기억하겠습니다.\n
                            소중한 날에 따뜻한 마음으로 함께해 주세요.`;
-  const kakaoMapjavaScriptKey = process.env.REACT_APP_KAKAO_API_KEY as string;  // 참고) root에서 .env 파일만들어 생성 필요. value: 카카오 디벨로퍼에서 어플리케이션 생성 후 JavaScript 키 발급
   const subwayText = `2호선 한양대역 1번 출구 → 한양대병원 방향 도보 5분
                       5호선 왕십리역 6번 출구 → 한양대병원 방향 도보 5분`;
   const busText = `지선  2012 2013 2014 2220 2222 2411 2016
@@ -82,7 +82,13 @@ export function WeddingInvitation() {
     "식사는 뷔페식이 아닌 함께한상 브랜드의 한정식 한 상 차림입니다.",
     "5세 이하의 어린이는 어린이 식권을 받아주시기 바랍니다. 6세 이상의 어린이는 성인과 동일한 식권을 사용합니다.",
     "병원에 주차하신 분들은 예약실에서 주차권을 수령하시기 바랍니다.",
+    "신부가 슈퍼갑",
   ];
+  const closingMessage = `사랑으로 키워주신 부모님과\n
+                          소중한 인연으로 함께해 주신 모든 분들께 깊이 감사드립니다.\n
+                          서로 아끼고 사랑하며 행복하게 살아가겠습니다.\n
+                          앞으로도 따뜻한 관심과 응원 부탁드립니다.\n
+                          사랑해 지수야~♥`;
 
   function parseBoolean(envVar: string | undefined): boolean {
     return envVar?.toLowerCase() === 'true';
@@ -124,7 +130,7 @@ export function WeddingInvitation() {
       {/* 메인이미지 */}
       <MainImage
         altText="이미지를 표시할 수 없습니다."
-        mainText="결혼 간단한 문구 작성하기"
+        mainText="~작업 중~"
         coupleNames={`${groom.lastName}${groom.firstName} | ${bride.lastName}${bride.firstName}`}
         detailsText={`${dateTime}\n${weddingVenue} ${floor} ${weddingHall}`}
       />
@@ -166,7 +172,7 @@ export function WeddingInvitation() {
         floor={floor}
         weddingHall={weddingHall}
         address={address}
-        kakaoMapjavaScriptKey={kakaoMapjavaScriptKey}
+        kakaoMapjavaScriptKey={process.env.REACT_APP_KAKAO_API_KEY as string}
         subwayText={subwayText}
         busText={busText}
         parkingText={parkingText}
@@ -202,6 +208,8 @@ export function WeddingInvitation() {
       />
       {/* 안내사항 */}
       <InfoBoard infoMessages={infoMessages} />
+      {/* 마무리 문구 */}
+      <ClosingMessage closingMessage={closingMessage} />
     </div>
   );
 }

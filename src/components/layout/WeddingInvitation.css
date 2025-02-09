@@ -10,16 +10,17 @@
     min-height: 100vh;           /* 화면 전체 높이 */
 }
   
-  /* MainImage 컴포넌트 별도 처리 */
-  .wedding-invitation-container > :first-child {
+  /* MainImage, ClosingMessage 컴포넌트 별도 처리 */
+  .wedding-invitation-container > :first-child,
+  .wedding-invitation-container > :last-child {
     width: 100%;                  /* 부모 너비에 맞춤 */
     max-width: none;              /* max-width 제한 제거 */
     object-fit: contain;          /* 이미지나 콘텐츠를 비율에 맞춰 조정 */
     flex-shrink: 0;               /* 축소 방지 */
 }
   
-  /* MainImage를 제외한 나머지 컴포넌트 간 간격 */
-  .wedding-invitation-container > :not(:first-child) {
+  /* MainImage, ClosingMessage를 제외한 나머지 컴포넌트 간 간격 */
+  .wedding-invitation-container > :not(:first-child):not(:last-child) {
     width: 500px;
     max-width: 100%;
     margin-top: 60px;
@@ -46,9 +47,9 @@
   margin: 8px 0; /* 위아래 여백 */
 }
 
-  /* 반응형 디자인 */
-  @media (max-width: 480px) {
-    .wedding-invitation-container > :not(:first-child) {
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+  .wedding-invitation-container > :not(:first-child):not(:last-child) {
       width: 90%;
       max-width: 85%;
     }

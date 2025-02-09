@@ -16,6 +16,8 @@ type DirectionsProps = {
 
 export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMapjavaScriptKey, subwayText, busText, parkingText }: DirectionsProps) {
   useEffect(() => {
+    if (!address || !kakaoMapjavaScriptKey) return;
+
     const mapScript = document.createElement("script"); // <script> 태그 생성
 
     mapScript.async = true;
