@@ -209,7 +209,10 @@ export function WeddingInvitation() {
       {/* 안내사항 */}
       <InfoBoard infoMessages={infoMessages} />
       {/* 마무리 문구 */}
-      <ClosingMessage closingMessage={closingMessage} />
+      <ClosingMessage 
+        groom={`${groom.lastName}${groom.firstName}`}
+        bride={`${bride.lastName}${bride.firstName}`}
+        closingMessage={closingMessage} />
     </div>
   );
 }
