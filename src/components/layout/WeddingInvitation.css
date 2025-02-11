@@ -47,6 +47,11 @@
   margin: 8px 0; /* 위아래 여백 */
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* 수평 스크롤 방지 */
+}
+
 /* 반응형 디자인 */
 @media (max-width: 480px) {
   .wedding-invitation-container > :not(:first-child):not(:last-child) {
