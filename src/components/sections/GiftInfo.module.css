@@ -4,13 +4,18 @@
     gap: 10px;
   }
   
-  .section {
-    border-radius: 8px;
+  .groomSection {
     overflow: hidden;
+    border: 1px #5A9FD7;
+  }
+
+  .brideSection {
+    overflow: hidden;
+    border: 1px #E68A9E;
   }
   
-  .header {
-    background: #E6E6FA;
+  .groomHeader {
+    background: #D6EBFF;
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -19,23 +24,62 @@
     justify-content: space-between;
   }
   
-  .header.expanded {
-    background: #DFF8EB;
+  .groomHeader.expanded {
+    background: #B0D7FA;
+  }
+
+  .brideHeader {
+    background: #FADBE3;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .brideHeader.expanded {
+    background: #F2D6E2;
   }
   
   .content {
     background: #ffffff;
-    padding: 15px;
   }
   
-  .personContainer, .parentContainer {
+  .groomContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 24px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 0 8px;
+    margin-top: 8px;
+    background-color: #F1F8FF;
+    padding: 8px;
+  }
+
+  .groomParentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #F1F8FF;
+    margin-top: 8px;
+    padding: 8px;
+  }
+
+  .brideContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 8px;
+    background-color: #FEF2F5;
+    padding: 8px;
+  }
+
+  .brideParentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #FEF2F5;
+    margin-top: 8px;
+    padding: 8px;
   }
 
   .accountContainer {
@@ -43,7 +87,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin: 8px 0;
     width: 100%; /* 부모 요소 기준 정렬 */
   }
 
@@ -83,7 +126,9 @@
   }
   
 @media (max-width: 480px) {
-  .personContainer, .parentContainer, .accountContainer {
+  .groomContainer, .brideContainer, 
+  .groomParentsContainer, .brideParentsContainer, 
+  .accountContainer {
       flex-direction: column;
       align-items: center;
       gap: 15px;

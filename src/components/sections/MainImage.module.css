@@ -40,11 +40,11 @@
     left: 50%; /* 가로 방향 중앙 */
     transform: translateX(-50%); /* 가로 방향 완전 중앙 정렬 */
     font-size: 1.5rem; /* 적당히 큰 텍스트 크기 */
-    color: #ffffff; /* 흰색 텍스트 */
+    color: #000000;
     font-family: 'Malgun Gothic', sans-serif; /* 맑은 고딕 */
     font-weight: bold; /* 굵은 텍스트 */
-    background-color: rgba(0, 0, 0, 0.4); /* 약간 투명한 검정 배경 */
-    padding: 15px 30px; /* 텍스트 주변 여백 */
+    background-color: rgba(0, 0, 0, 0.3); /* 약간 투명한 검정 배경 */
+    padding: 3px 8px; /* 텍스트 주변 여백 */
     border-radius: 8px; /* 둥근 모서리로 부드러운 느낌 */
     text-align: center; /* 텍스트 중앙 정렬 */
     line-height: 1.6; /* 줄 간격 */
@@ -67,7 +67,7 @@
   
   /* 세부 정보 텍스트 */
   .detailsText {
-    font-size: 0.9rem; /* 세부 텍스트 크기 */
+    font-size: 1rem; /* 세부 텍스트 크기 */
     color: #333333;
     font-family: 'Malgun Gothic', sans-serif; /* 맑은 고딕 */
     margin-top: 20px; 
@@ -80,15 +80,15 @@
   /* 반응형 디자인 */
   @media (max-width: 480px) {
     .mainText {
-        font-size: 1rem; /* 모바일에서 텍스트 크기 줄이기 */
+        font-size: 1.3rem; /* 모바일에서 텍스트 크기 줄이기 */
     }
     
     .coupleNames {
-      font-size: 1.5rem; /* 모바일에서 커플 이름 크기 줄이기 */
+      font-size: 1.8rem; /* 모바일에서 커플 이름 크기 줄이기 */
     }
   
     .detailsText {
-      font-size: 0.8rem; /* 모바일에서 세부 텍스트 크기 줄이기 */
+      font-size: 0.9rem; /* 모바일에서 세부 텍스트 크기 줄이기 */
     }
   
     .textOverlayContainer {

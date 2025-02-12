@@ -40,9 +40,9 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
 
       <div className={styles.container}>
         {/* 신랑 */}
-        <div className={styles.section}>
+        <div className={styles.groomSection}>
           <div
-            className={`${styles.header} ${groomExpanded ? styles.expanded : ''}`}
+            className={`${styles.groomHeader} ${groomExpanded ? styles.expanded : ''}`}
             onClick={() => setGroomExpanded(!groomExpanded)}
           >
             신랑측 계좌번호 확인하기 <span>{groomExpanded ? '▲' : '▼'}</span>
@@ -55,9 +55,9 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
         </div>
 
         {/* 신부 */}
-        <div className={styles.section}>
+        <div className={styles.brideSection}>
           <div
-            className={`${styles.header} ${brideExpanded ? styles.expanded : ''}`}
+            className={`${styles.brideHeader} ${brideExpanded ? styles.expanded : ''}`}
             onClick={() => setBrideExpanded(!brideExpanded)}
           >
             신부측 계좌번호 확인하기 <span>{brideExpanded ? '▲' : '▼'}</span>
@@ -90,7 +90,7 @@ type AccountInfoProps = {
 const handleAccountCopy = (account: string) => {
   navigator.clipboard.writeText(account)
   .then(() => {
-    toast.success("복사 완료: 계좌번호가 복사되었습니다.", {
+    toast.success(`계좌번호가 복사되었습니다.\n${account}`, {
       duration: 2000, // 2초 후 자동 사라짐
       position: "top-center",
     });
@@ -110,7 +110,7 @@ const handleSendKakaoPay = (kakaoPayLink: string) => {
 export const AccountInfo = ({ person, side }: AccountInfoProps) => {
     return (
         <div>
-            <div className={styles.personContainer}>
+            <div className={side === Side.Groom  ? styles.groomContainer : styles.brideContainer}>
                 <span>{side === Side.Groom ? "신랑" : "신부"} {person.name}</span>
 
                 <div className={styles.accountContainer}>
@@ -134,7 +134,7 @@ export const AccountInfo = ({ person, side }: AccountInfoProps) => {
             </div>
 
             {person.father && (
-                <div className={styles.parentContainer}>
+                <div className={side === Side.Groom  ? styles.groomParentsContainer : styles.brideParentsContainer}>
                     <span>{side === Side.Groom ? "신랑" : "신부"} 아버지 {person.father.name}</span>
 
                     <div className={styles.accountContainer}>
@@ -158,7 +158,7 @@ export const AccountInfo = ({ person, side }: AccountInfoProps) => {
             )}
 
             {person.mother && (
-                <div className={styles.parentContainer}>
+                <div className={side === Side.Groom  ? styles.groomParentsContainer : styles.brideParentsContainer}>
                     <span>{side === Side.Groom ? "신랑" : "신부"} 어머니 {person.mother.name}</span>
 
                     <div className={styles.accountContainer}>
@@ -183,5 +183,3 @@ export const AccountInfo = ({ person, side }: AccountInfoProps) => {
         </div>
     );
 };
-
-// export default AccountInfo;
