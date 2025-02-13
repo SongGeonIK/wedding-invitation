@@ -39,6 +39,16 @@
   margin: 0;
 }
 
+.header-icon {
+  width: 50px; /* 월계관 이미지 크기 */
+  height: 20px;
+  background-image: url('../../assets/images/wedding-bell.svg'); /* 월계관 이미지 경로 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 auto 8px auto; /* 중앙 정렬 */
+}
+
 .header-line {
   width: 100%; /* 선의 너비 */
   height: 1px;
