@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styles from "./Directions.module.css";
+import TMapLogo from '../../assets/images/logos/tmap-logo.png';
 import KakaoMapLogo from '../../assets/images/logos/kakaomap-basic.png';
 import NaverMapLogo from '../../assets/images/logos/navermap-logo.png';
 
@@ -70,11 +71,33 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
     };
   }, [address, kakaoMapjavaScriptKey]);
 
-  const handleMapClick = (platform: "kakao" | "naver") => {
+  const handleMapClick = (platform: "tmap" | "kakao" | "naver") => {
     const encodedAddress = encodeURIComponent(address);
     let url = "";
 
     switch (platform) {
+      case "tmap":
+        const userAgent = navigator.userAgent;
+            
+        if (/android/i.test(userAgent)) {
+            // Android - intent 사용 (설치 여부 자동 감지)
+            url = `intent://search?name=${encodedAddress}#Intent;scheme=tmap;package=com.skt.tmap.ku;end;`;
+            window.location.href = url;
+        } else if (/iPad|iPhone|iPod/.test(userAgent)) {
+            // iOS - 앱 실행 시도 후 미설치 시 App Store로 이동
+            url = `tmap://search?name=${encodedAddress}`;
+            const appStoreUrl = "https://apps.apple.com/kr/app/t-map-%EC%9C%84%EC%A7%80%EB%82%98%EB%A6%AC-%EB%84%98%EB%B9%84/id431589174";
+
+            setTimeout(() => {
+                window.location.href = appStoreUrl; // 앱 실행 안되면 스토어로 이동
+            }, 2000);
+
+            window.location.href = url;
+        } else {
+            alert("Tmap은 모바일에서만 사용할 수 있습니다.");
+            return;
+        }
+        break;
       case "kakao":
         url = `https://map.kakao.com/link/search/${encodedAddress}`;
         break;
@@ -104,6 +127,10 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
       <div id="map" className={styles.mapContainer}></div>
       {/* 맵 서비스 버튼 */}
       <div className={styles.mapButtons}>
+      <button onClick={() => handleMapClick("tmap")}>
+          <img src={TMapLogo} alt="티맵" />
+          <h4>티맵</h4>
+        </button>        
         <button onClick={() => handleMapClick("kakao")}>
           <img src={KakaoMapLogo} alt="카카오맵" />
           <h4>카카오맵</h4>
