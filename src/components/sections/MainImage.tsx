@@ -13,35 +13,45 @@ type MainImageProps = {
 };
 
 export function MainImage({ altText, mainText, coupleNames, detailsText }: MainImageProps) {
-  const [mainImage, setMainImage] = useState<string>(mainImage1);
-  const [fade, setFade] = useState<boolean>(true);
-
   const images = [
     mainImage1,
     mainImage2,
     mainImage3,
     mainImage4,
   ];
+  const [mainImage, setMainImage] = useState<string>(images[0]);
+  const [fade, setFade] = useState<boolean>(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        const currentIndex = images.indexOf(mainImage);
-        const nextIndex = (currentIndex + 1) % images.length;
-        setMainImage(images[nextIndex]);
-        setFade(true);
-      }, 500);
-    }, 5000);
+    const changeImage = () => {
+      setFade(false); // 1. 0.5초 동안 페이드 아웃
 
-    return () => clearInterval(interval);
-  }, [mainImage]);
+      setTimeout(() => {
+        setMainImage((prevImage) => {
+          const currentIndex = images.indexOf(prevImage);
+          const nextIndex = (currentIndex + 1) % images.length;
+          return images[nextIndex];
+        });
+      }, 500); // 0.5초 후 이미지 변경 (fadeOut 완료 후)
+
+    };
+
+    const interval = setInterval(changeImage, 5000); // 5초마다 실행
+
+    return () => clearInterval(interval); // 컴포넌트 언마운트 시 정리
+  }, []); // `useEffect`를 한 번만 실행하여 `setInterval`을 유지
+
+  // 이미지 로드 완료 시 페이드 인 적용
+  const handleImageLoad = () => {
+    setFade(true); // 이미지 로딩 완료 후 페이드 인
+  };
 
   return (
     <div className={styles.mainImageContainer}>
         <img 
           src={mainImage} 
           alt={altText} 
+          onLoad={handleImageLoad}
           className={`${styles.mainImage} ${fade ? styles.fadeIn : styles.fadeOut}`} 
         />
         {(mainText && 
