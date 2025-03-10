@@ -130,7 +130,7 @@ export function WeddingInvitation() {
       {/* 메인이미지 */}
       <MainImage
         altText="이미지를 표시할 수 없습니다."
-        mainText="~작업 중~"
+        mainText=""
         coupleNames={`${groom.lastName}${groom.firstName} | ${bride.lastName}${bride.firstName}`}
         detailsText={`${dateTime}\n${weddingVenue} ${floor} ${weddingHall}`}
       />
