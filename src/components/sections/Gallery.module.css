@@ -4,12 +4,10 @@
     flex-direction: column;
     align-items: center;
     margin: 20px auto;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     border: 0px;
     border-radius: 8px;
-    padding: 20px;
-    background-color: rgba(255, 107, 138, 0.05);
   }
   
   /* 메인 이미지 뷰 */
@@ -70,8 +68,8 @@
   }
   
   .thumbnailImage {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border: 2px solid transparent;
     border-radius: 5px;

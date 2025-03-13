@@ -60,7 +60,7 @@ export function Gallery() {
   useEffect(() => {
     const generateResizedImages = async () => {
       const resizedThumbnails = await Promise.all(
-        images.map((image) => resizeImage(image, 60*1.2)) //scale 1.2 배까지 확대
+        images.map((image) => resizeImage(image, 80*1.2)) //scale 1.2 배까지 확대
       );
       setThumbnails(resizedThumbnails);
 
