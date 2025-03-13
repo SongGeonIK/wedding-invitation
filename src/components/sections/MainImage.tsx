@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './MainImage.module.css';
-import mainImage1 from '../../assets/images/photos/main/main-image1.jpg';
-import mainImage2 from '../../assets/images/photos/main/main-image2.jpg';
-import mainImage3 from '../../assets/images/photos/main/main-image3.jpg';
-import mainImage4 from '../../assets/images/photos/main/main-image4.jpg';
+import mainImage1 from '../../assets/images/photos/main/1.jpg';
+import mainImage2 from '../../assets/images/photos/main/2.jpg';
+import mainImage3 from '../../assets/images/photos/main/3.jpg';
+import mainImage4 from '../../assets/images/photos/main/4.jpg';
 
 type MainImageProps = {
   altText: string;

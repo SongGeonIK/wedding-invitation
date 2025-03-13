@@ -40,7 +40,7 @@
 }
 
 .header-icon {
-  width: 50px; /* 월계관 이미지 크기 */
+  width: 50px;
   height: 20px;
   background-image: url('../../assets/images/wedding-bell.svg'); /* 월계관 이미지 경로 */
   background-size: contain;
