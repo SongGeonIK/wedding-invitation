@@ -10,6 +10,44 @@
     color: #333;
   }
 
+  .lockButtonContainer {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    margin: 12px 0; /* 위아래 간격 */
+  }
+  
+  .lockButton {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .lockButton:hover {
+    background-color: #f2f2f2;
+  }
+
+  .mapLockMessage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    z-index: 10;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    pointer-events: none;
+  }
+  
   .mapContainer {
     width: 100%;
     aspect-ratio: 1 / 1; /* 정사각형 비율 */
