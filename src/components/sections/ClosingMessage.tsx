@@ -31,12 +31,11 @@ export function ClosingMessage({  groom, bride, closingMessage }: ClosingMessage
         objectType: "feed",
         content: {
           title: "💌 청첩장",
-          description: `💍 ${groom}♥${bride}의 결혼식에 초대합니다. 🎉`,
-          imageUrl: "https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg",
+          description: `💍 ${groom}♥${bride}의 결혼식에 초대합니다.`,
+          imageUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/logo192.png`, // public 폴더 내 이미지 적용.
           link: {
-            // 카카오 디벨로퍼의 [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-            mobileWebUrl: "https://songgeonik.github.io/wedding-invitation/",
-            webUrl: "https://songgeonik.github.io/wedding-invitation/",
+            mobileWebUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/`,
+            webUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/`,
           },
         },
         // social: {
@@ -48,15 +47,15 @@ export function ClosingMessage({  groom, bride, closingMessage }: ClosingMessage
           {
             title: '웹으로 보기',
             link: {
-              mobileWebUrl: 'https://songgeonik.github.io/wedding-invitation/',
-              webUrl: 'https://songgeonik.github.io/wedding-invitation/',
+              mobileWebUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/`,
+              webUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/`,
             },
           },
           {
             title: '앱으로 보기',
             link: {
-              mobileWebUrl: 'https://songgeonik.github.io/wedding-invitation/',
-              webUrl: 'https://songgeonik.github.io/wedding-invitation/',
+              mobileWebUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/`,
+              webUrl: `${process.env.REACT_APP_API_BASE_URL}/wedding-invitation/`,
             },
           },
         ],
