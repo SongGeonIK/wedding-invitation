@@ -36,27 +36,41 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
         const mapContainer = document.getElementById("map"); // 지도를 표시할 div
         const mapOption = {
           center: new window.kakao.maps.LatLng(37.5665, 126.978), // 기본 좌표 (서울)
-          level: 3, // 지도 확대 레벨
+          level: 4, // 지도 확대 레벨
         };
 
         const map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-        // 주소 기반 좌표 변환 및 마커 추가
-        const geocoder = new window.kakao.maps.services.Geocoder();
-        geocoder.addressSearch(address, (result: any, status: string) => {
-          if (status === window.kakao.maps.services.Status.OK) {
-            const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
+        // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+        var mapTypeControl = new window.kakao.maps.MapTypeControl();
 
-            // 지도의 중심을 결과 좌표로 이동
+        // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+        // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+        map.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
+
+        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+        var zoomControl = new window.kakao.maps.ZoomControl();
+        map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
+
+        // 주소 기반 좌표 변환 및 마커 추가
+        const places = new window.kakao.maps.services.Places();
+        places.keywordSearch(weddingVenue, (result: any[], status: string) => {
+          if (status === window.kakao.maps.services.Status.OK && result.length > 0) {
+            const coords = new window.kakao.maps.LatLng(
+              parseFloat(result[0].y),
+              parseFloat(result[0].x)
+            );
+
+            // 지도 중심 이동
             map.setCenter(coords);
 
-            // 마커 표시
+            // 마커 추가
             new window.kakao.maps.Marker({
               map: map,
               position: coords,
             });
           } else {
-            console.error("주소 검색 실패:", status);
+            console.error("장소 검색 실패:", status);
           }
         });
       });
@@ -72,7 +86,7 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
   }, [address, kakaoMapjavaScriptKey]);
 
   const handleMapClick = (platform: "tmap" | "kakao" | "naver") => {
-    const encodedAddress = encodeURIComponent(address);
+    const encodedAddress = encodeURIComponent(weddingVenue);
     let url = "";
 
     switch (platform) {

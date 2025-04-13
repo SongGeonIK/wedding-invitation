@@ -5,7 +5,7 @@ type WeddingDateTimeProps = {
     month: number,
     day: number,
     hour: number,
-    minute: number,
+    minute?: number,
 }
 
 function formatMonth(month: number) {
@@ -31,7 +31,9 @@ export function WeddingDateTime({
             <div className={styles.dateTimeContainer}>
                 <p className={styles.dateText}>{year}년 {formatMonth(month)}월 {day}일</p>
                 <p className={styles.timeText}>
-                    {dayOfWeekNames[new Date(year, month - 1, day).getDay()]}요일 {hour}시 {minute}분
+                {`${dayOfWeekNames[new Date(year, month - 1, day).getDay()]}요일 ${hour}시
+                    ${typeof minute === "number" && !isNaN(minute) ? ` ${minute}분` : ""}`
+                }
                 </p>
             </div>
 

@@ -63,33 +63,45 @@ export function WeddingInvitation() {
       },
     }
   };
-  const dateTime = '2025년 01월 16일 14시 30분'; // yyyy년 MM월 dd일 HH시 mm분
-  const address = '서울 강서구 마곡중앙5로 6 보타닉푸르지오시티 L층(로비층)';
-  const weddingVenue = '웨딩 장소';
-  const floor = 'n층';
-  const weddingHall = 'OOO홀';
+  const dateTime = '2025년 09월 20일 19시'; // yyyy년 MM월 dd일 HH시 mm분
+  const address = "서울 서대문구 연세로 50 연세대학교 동문회관 예식장";
+  const weddingVenue = '연세대학교 동문회관 예식장';
+  const floor = '3층';
+  const weddingHall = '그랜드볼룸';
   const greetingMessage = `서로의 소중함을 느끼며 함께한 시간 속에서\n저희 두 사람은 평생을 함께하고자 결혼을 약속하게 되었습니다.\n
                            저희의 새로운 시작을 축복으로 함께해 주신다면\n큰 기쁨과 감사로 기억하겠습니다.\n
                            소중한 날에 따뜻한 마음으로 함께해 주세요.`;
-  const subwayText = `2호선 한양대역 1번 출구 → 한양대병원 방향 도보 5분
-                      5호선 왕십리역 6번 출구 → 한양대병원 방향 도보 5분`;
-  const busText = `지선  2012 2013 2014 2220 2222 2411 2016
-                   간선  263 302 371`;
-  const parkingText = `건물 주차장 또는 병원 주차장 이용 시 90분 무료
-                       * 이후 추가요금 발생`;
-  const infoMessages = [ // 메세지 list 로 표현
-    "신부대기실은 O층 세인트룸에 위치해있습니다.",
-    "식사는 뷔페식이 아닌 함께한상 브랜드의 한정식 한 상 차림입니다.",
-    "5세 이하의 어린이는 어린이 식권을 받아주시기 바랍니다. 6세 이상의 어린이는 성인과 동일한 식권을 사용합니다.",
-    "병원에 주차하신 분들은 예약실에서 주차권을 수령하시기 바랍니다.",
-    "신부가 슈퍼갑",
-  ];
-  const closingMessage = `사랑으로 키워주신 부모님과\n
-                          소중한 인연으로 함께해 주신 모든 분들께 깊이 감사드립니다.\n
-                          서로 아끼고 사랑하며 행복하게 살아가겠습니다.\n
-                          앞으로도 따뜻한 관심과 응원 부탁드립니다.\n
-                          사랑해 지수야~♥`;
+  const subwayText = `2호선 신촌역 3번 출구 → 연세로 따라 직진 (도보 약 15분)
+                      경의중앙 신촌역 2번 출구 → 501m (도보 약 10분)`;
+  const busText = `셔틀버스 :
+                   2호선 이대역(3번출구 앞) → 동문회관 (18시20분, 18시40분 총 2회 운행)
+                   동문회간 B1 현관 앞 → 2호선 이대역 (20시10분, 20시30분 총 2회 운행)
 
+                   간선버스(파랑) :
+                   272, 470, 601, 606, 672, 673, 700, 707, 708, 710, 742, 750(AB)번
+                   (이대후문 또는 이대부중 하차)
+
+                   지선버스(초록) :
+                   6714, 7017, 7024, 7737번
+                   (이대후문 또는 이대부중 하차)
+
+                   광역 · 직행버스 :
+                   G7111, M7106, M7111, M7119, M7154번
+                   (이대후문 하차)`;
+  const parkingText = `동문회관 주차장 이용 500여대 동시 2시간 무료
+                       ("연세 동문회관"으로 출차 시 적용 가능)`;
+  const infoMessages = [
+    "👰 신부대기실은 3층에 위치해있습니다.",
+    "🍽️ 식사는 뷔페식이며 2층, 3층 모두 이용가능합니다.",
+    "👶 뷔페는 만 5세 이하의 어린이는 무료이며 만 6세 이상부터 식수 인원에 포함됩니다.",
+    "🏧 ATM 기계는 1층 우리은행을 이용해주세요.",
+    "☕ 커피 머신은 2층에 위치해 있습니다.",
+  ];  
+  const closingMessage = `사랑으로 길러주신 부모님께,\n  
+                          소중한 인연으로 함께해 주신 모든 분들께 진심으로 감사드립니다.\n
+                          저희 두 사람, 서로 아끼고 사랑하며 행복한 가정을 만들어가겠습니다.\n  
+                          앞으로도 따뜻한 관심과 응원 부탁드립니다.`;
+  
   function parseBoolean(envVar: string | undefined): boolean {
     return envVar?.toLowerCase() === 'true';
   }
@@ -100,9 +112,9 @@ export function WeddingInvitation() {
     month: number;
     day: number;
     hour: number;
-    minute: number;
+    minute?: number;
   } {
-    const dateTimeRegex = /(\d{4})년\s(\d{2})월\s(\d{2})일\s(\d{2})시\s(\d{2})분/;
+    const dateTimeRegex = /(\d{4})년\s*(\d{2})월\s*(\d{2})일\s*(\d{2})시(?:\s*(\d{2})분)?/;
     const match = dateTime.match(dateTimeRegex);
 
     if (!match) {
@@ -112,13 +124,14 @@ export function WeddingInvitation() {
     }
 
     const [, year, month, day, hour, minute] = match;
+    const parsedMinute = parseInt(minute, 10);
 
     return {
       year: parseInt(year, 10),
       month: parseInt(month, 10),
       day: parseInt(day, 10),
       hour: parseInt(hour, 10),
-      minute: parseInt(minute, 10),
+      ...(parsedMinute !== 0 && { minute: parsedMinute }), // minute이 0이면 속성 생략
     };
   }
 

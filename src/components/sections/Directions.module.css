@@ -11,7 +11,7 @@
   }
 
   .mapContainer {
-    width: 85%;
+    width: 100%;
     aspect-ratio: 1 / 1; /* 정사각형 비율 */
     margin: 20px auto;
   }
