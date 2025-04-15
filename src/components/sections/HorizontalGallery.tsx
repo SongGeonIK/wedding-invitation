@@ -10,7 +10,7 @@ import gallery7 from "../../assets/images/photos/gallery/7.jpg";
 import gallery8 from "../../assets/images/photos/gallery/8.jpg";
 import gallery9 from "../../assets/images/photos/gallery/9.jpg";
 
-export function Gallery() {
+export function HorizontalGallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [thumbnails, setThumbnails] = useState<string[]>([]);
   const [resizedImages, setResizedImages] = useState<string[]>([]);

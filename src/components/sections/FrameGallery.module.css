@@ -1,0 +1,139 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.thumbnailContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개씩 한 줄에 표시 */
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.thumbnailItem {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.thumbnailItem:hover .thumbnailImage {
+  transform: scale(1.1);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* 배경을 반투명하게 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%; /* 화면 가득 차게 */
+  height: 100%; /* 화면 가득 차게 */
+  background: transparent; /* 흰 배경을 없애고 투명 처리 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 5vh 0;
+}
+
+.mainImage {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}  
+
+.navButtonLeft,
+.navButtonRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.navButtonLeft {
+  left: 10px; /* 왼쪽에 위치 */
+}
+
+.navButtonRight {
+  right: 10px; /* 오른쪽에 위치 */
+}
+
+.navButtonLeft:hover,
+.navButtonRight:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5); /* 불투명 배경 */
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* 동그란 모양 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.7); /* 호버 시 배경색 변경 */
+}
+
+.imageInfo {
+  position: absolute;
+  top: 10px; /* 좌측 상단에 배치 */
+  left: 10px;
+  font-size: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 8px;
+  z-index: 1001;
+}

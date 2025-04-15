@@ -21,14 +21,16 @@
 
 /* 버튼 스타일 */
 .kakaoShare {
-    border: 2px solid #FEE500;
+    border: 0px;
     border-radius: 12px;
     cursor: pointer;
     background: #FEE500;
-    padding: 5px;
+    padding: 8px 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .kakaoShareContent {

@@ -3,7 +3,7 @@ import { Greeting } from '../sections/Greeting';
 import { MainImage } from '../sections/MainImage';
 import { WeddingDateTime } from '../sections/WeddingDateTime';
 import { Directions } from '../sections/Directions';
-import { Gallery } from '../sections/Gallery';
+import { FrameGallery } from '../sections/FrameGallery';
 import { GiftInfo } from '../sections/GiftInfo';
 import { InfoBoard } from '../sections/InfoBoard';
 import { ClosingMessage } from '../sections/ClosingMessage';
@@ -191,7 +191,7 @@ export function WeddingInvitation() {
         parkingText={parkingText}
       />
       {/* 갤러리 */}
-      <Gallery />
+      <FrameGallery />
       {/* 마음 전하실 곳 */}
       <GiftInfo
         groomInfo={{
