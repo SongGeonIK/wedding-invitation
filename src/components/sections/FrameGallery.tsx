@@ -12,7 +12,6 @@ import gallery9 from "../../assets/images/photos/gallery/9.jpg";
 
 export function FrameGallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [thumbnails, setThumbnails] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const images = [
@@ -28,9 +27,22 @@ export function FrameGallery() {
   ];
 
   useEffect(() => {
-    setThumbnails(images); // 썸네일은 기본적으로 원본 이미지
-    setSelectedImage(images[0]); // 기본적으로 첫 번째 이미지를 선택
-  }, []);
+    if (isModalOpen) {
+      // 모달이 열렸을 때 body와 html의 스크롤을 비활성화
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden"; // html의 스크롤도 비활성화
+    } else {
+      // 모달이 닫혔을 때 스크롤을 원래 상태로 복원
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto"; // html의 스크롤도 복원
+    }
+
+    // clean up on unmount or modal close
+    return () => {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto"; // html의 스크롤도 복원
+    };
+  }, [isModalOpen]);
 
   const openModal = (image: string) => {
     setSelectedImage(image);
