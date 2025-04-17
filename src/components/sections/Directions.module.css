@@ -10,10 +10,27 @@
     color: #333;
   }
 
-  .lockButtonContainer {
+  .operationButtonContainer {
     display: flex;
-    justify-content: center; /* 중앙 정렬 */
-    margin: 12px 0; /* 위아래 간격 */
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .initButton {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin-right: 0;
+  }
+  
+  .initButton:hover {
+    background-color: #f2f2f2;
   }
   
   .lockButton {

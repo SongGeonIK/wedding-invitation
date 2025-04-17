@@ -15,12 +15,22 @@ type DirectionsProps = {
   parkingText: string;
 };
 
-export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMapjavaScriptKey, subwayText, busText, parkingText }: DirectionsProps) {
+export function Directions({
+  weddingVenue,
+  floor,
+  weddingHall,
+  address,
+  kakaoMapjavaScriptKey,
+  subwayText,
+  busText,
+  parkingText,
+}: DirectionsProps) {
   const [isMapLocked, setIsMapLocked] = useState(true);
   const [showLockMessage, setShowLockMessage] = useState(false);
   const mapRef = useRef<any>(null);
 
-  useEffect(() => {
+  // 카카오 맵 로드 및 초기화 함수
+  const loadMap = () => {
     if (!address || !kakaoMapjavaScriptKey) return;
 
     const mapScript = document.createElement("script");
@@ -45,12 +55,6 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
 
         const map = new window.kakao.maps.Map(mapContainer, mapOption);
         mapRef.current = map;
-
-        // const mapTypeControl = new window.kakao.maps.MapTypeControl();
-        // map.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
-
-        // const zoomControl = new window.kakao.maps.ZoomControl();
-        // map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
 
         const places = new window.kakao.maps.services.Places();
         places.keywordSearch(weddingVenue, (result: any[], status: string) => {
@@ -79,7 +83,21 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
       mapScript.removeEventListener("load", onLoadKakaoMap);
       document.head.removeChild(mapScript);
     };
-  }, [address, kakaoMapjavaScriptKey, isMapLocked]);
+  };
+
+  // 맵을 새로 로드하는 함수 (초기화 버튼 클릭 시)
+  const handleResetMap = () => {
+    // 맵 컨테이너를 비우고 새로 로드
+    const mapContainer = document.getElementById("map");
+    if (mapContainer) {
+      mapContainer.innerHTML = ""; // 맵을 초기화하여 삭제
+    }
+    loadMap();  // 맵을 새로 로드
+  };
+
+  useEffect(() => {
+    loadMap(); // 초기 맵 로드
+  }, [address, kakaoMapjavaScriptKey]);
 
   const toggleMapLock = () => {
     const nextLockState = !isMapLocked;
@@ -146,9 +164,12 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
         <p className={styles.weddingVenueText}>{floor} {weddingHall}</p>
       </div>
 
-      <div className={styles.lockButtonContainer}>
+      <div className={styles.operationButtonContainer}>
         <button onClick={toggleMapLock} className={styles.lockButton}>
           {isMapLocked ? "🔒 지도 잠금" : "🔓 지도 조작 가능"}
+        </button>
+        <button onClick={handleResetMap} className={styles.initButton}>
+          {"🔄 초기화"}
         </button>
       </div>
 
