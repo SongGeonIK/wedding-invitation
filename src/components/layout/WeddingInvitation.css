@@ -9,6 +9,7 @@
   position: relative;          /* 부모 컨테이너에 의존하지 않음 */
   min-height: 100vh;           /* 화면 전체 높이 */
   overflow-y: auto;            /* 세로 스크롤 가능 */
+  overflow-x: hidden;          /* 가로 스크롤 방지 */
 }
 
 /* MainImage, ClosingMessage 컴포넌트 별도 처리 */
