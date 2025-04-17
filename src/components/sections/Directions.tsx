@@ -46,11 +46,11 @@ export function Directions({ weddingVenue, floor, weddingHall, address, kakaoMap
         const map = new window.kakao.maps.Map(mapContainer, mapOption);
         mapRef.current = map;
 
-        const mapTypeControl = new window.kakao.maps.MapTypeControl();
-        map.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
+        // const mapTypeControl = new window.kakao.maps.MapTypeControl();
+        // map.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
 
-        const zoomControl = new window.kakao.maps.ZoomControl();
-        map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
+        // const zoomControl = new window.kakao.maps.ZoomControl();
+        // map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
 
         const places = new window.kakao.maps.services.Places();
         places.keywordSearch(weddingVenue, (result: any[], status: string) => {
