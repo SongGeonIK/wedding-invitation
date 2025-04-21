@@ -31,33 +31,39 @@
 
 /* 공통 헤더 스타일 */
 .header {
-  margin-bottom: 20px;
-  text-align: left;
+  margin-bottom: 24px;
+  text-align: center;
+  padding: 0 16px;
 }
 
 .header-title {
-  font-size: 0.9rem;
-  font-weight: lighter;
-  color: #333333;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5a4e4e; /* 톤 다운된 브라운 그레이 */
   margin: 0;
+  letter-spacing: 1px;
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 .header-icon {
-  width: 50px;
-  height: 20px;
+  width: 36px;
+  height: 36px;
   background-image: url('../../assets/images/wedding-bell.svg');
   background-size: contain;
   background-repeat: no-repeat;
   display: block;
-  margin: 0 auto 8px auto;
+  margin: 0 auto 12px;
+  opacity: 0.8;
 }
 
 .header-line {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
+  width: 70%;
+  max-width: 320px;
+  height: 2px;
+  background-color: #d9bfbf;
+  margin: 12px auto;
   border: none;
-  margin: 8px 0;
+  border-radius: 2px;
 }
 
 /* 전체 페이지 스타일 */
