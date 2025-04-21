@@ -101,7 +101,6 @@ const handleAccountCopy = (account: string) => {
 }
 
 const handleSendKakaoPay = (kakaoPayLink: string) => {
-  console.log('kakaoPayLink >>', kakaoPayLink );
   if (kakaoPayLink) {
     window.location.href = kakaoPayLink;
   }

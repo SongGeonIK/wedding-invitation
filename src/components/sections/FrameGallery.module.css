@@ -7,22 +7,21 @@
 .thumbnailContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3개씩 한 줄에 표시 */
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   margin-top: 20px;
+  line-height: 0; /* ✅ 줄 간격 제거 */
 }
 
 .thumbnailItem {
   cursor: pointer;
-  border-radius: 8px;
   overflow: hidden;
 }
 
 .thumbnailImage {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1; /* 정사각형 비율 */
   object-fit: cover;
-  border-radius: 8px;
   transition: transform 0.2s ease;
 }
 
