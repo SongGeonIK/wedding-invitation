@@ -1,30 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./FrameGallery.module.css";
-import gallery1 from "../../assets/images/photos/gallery/1.jpg";
-import gallery2 from "../../assets/images/photos/gallery/2.jpg";
-import gallery3 from "../../assets/images/photos/gallery/3.jpg";
-import gallery4 from "../../assets/images/photos/gallery/4.jpg";
-import gallery5 from "../../assets/images/photos/gallery/5.jpg";
-import gallery6 from "../../assets/images/photos/gallery/6.jpg";
-import gallery7 from "../../assets/images/photos/gallery/7.jpg";
-import gallery8 from "../../assets/images/photos/gallery/8.jpg";
-import gallery9 from "../../assets/images/photos/gallery/9.jpg";
 
 export function FrameGallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const images = [
-    gallery1,
-    gallery2,
-    gallery3,
-    gallery4,
-    gallery5,
-    gallery6,
-    gallery7,
-    gallery8,
-    gallery9,
-  ];
+const images: string[] = [];
+
+for (let i = 1; i <= 12; i++) {
+  images.push(require(`../../assets/images/photos/gallery/${i}.jpg`)); // 또는 import if supported
+}
 
   useEffect(() => {
     if (isModalOpen) {
