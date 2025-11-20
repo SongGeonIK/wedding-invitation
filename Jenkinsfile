@@ -26,6 +26,7 @@ pipeline {
                 npm ci --legacy-peer-deps || npm install --legacy-peer-deps
                 '''
             }
+        }
 
         stage('Build & Deploy to GitHub Pages') {
             steps {
