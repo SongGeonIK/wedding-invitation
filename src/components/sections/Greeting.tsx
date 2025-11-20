@@ -1,6 +1,4 @@
-import WeddingBell from '../../assets/images/wedding-bell.svg';
 import RoseFlower from '../../assets/images/rose-flower.svg';
-
 import styles from './Greeting.module.css';
 
 type GreetingProps = {

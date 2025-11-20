@@ -1,6 +1,5 @@
 import styles from './ClosingMessage.module.css';
 import { useEffect } from 'react';
-import KakaoTalk from '../../assets/images/logos/kakaotalk.png';
 
 type ClosingMessageProps = {
   groom: string;
@@ -70,7 +69,6 @@ export function ClosingMessage({  groom, bride, closingMessage }: ClosingMessage
       <p className={styles.closingMessageText}>{closingMessage}</p>
       <button className={styles.kakaoShare} onClick={shareKakao}>
         <div className={styles.kakaoShareContent}>
-          {/* <img src={KakaoTalk} alt="카카오톡" className={styles.kakaoIcon} /> */}
           <span className={styles.kakaoText}>카카오톡 공유하기</span>
         </div>
     </button>

@@ -3,6 +3,16 @@ import styles from './GiftInfo.module.css';
 import KakaoPay from '../../assets/images/logos/kakaopay.png';
 import { Toaster, toast } from "react-hot-toast";
 
+enum Side {
+  Groom = 1,
+  Bride = 2,
+}
+
+type AccountInfoProps = {
+  person: FamilyMemberInfo;
+  side: Side;
+};
+
 type BankInfo = {
   name: string;
   accountNumber: string;
@@ -76,16 +86,6 @@ export function GiftInfo({ groomInfo, brideInfo }: GiftInfoProps) {
     </div>
   );
 }
-
-enum Side {
-  Groom = 1,
-  Bride = 2,
-}
-
-type AccountInfoProps = {
-  person: FamilyMemberInfo;
-  side: Side;
-};
 
 const handleAccountCopy = (account: string) => {
   navigator.clipboard.writeText(account)
