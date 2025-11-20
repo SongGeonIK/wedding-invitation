@@ -25,7 +25,7 @@ export function Greeting({
     <div>
       {/* 인사말 고정 부분 */}
       <div className="header">
-        <h2 className="header-title">ㅋㅋㅋ인사말</h2>
+        <h2 className="header-title">인사말</h2>
         <hr className="header-line" />
       </div>
 
