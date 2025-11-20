@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'node-lts'  
+    }
+
     environment {
         GIT_CREDENTIALS_ID = 'SongGeonIk'
         REPO_URL           = 'https://github.com/SongGeonIK/wedding-invitation.git'
