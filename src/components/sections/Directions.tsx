@@ -83,7 +83,7 @@ export function Directions({
       mapScript.removeEventListener("load", onLoadKakaoMap);
       document.head.removeChild(mapScript);
     };
-  }, [address, kakaoMapjavaScriptKey]);
+  }, [address, kakaoMapjavaScriptKey, isMapLocked, weddingVenue]);
 
   // 맵을 새로 로드하는 함수 (초기화 버튼 클릭 시)
   const handleResetMap = () => {
@@ -97,7 +97,7 @@ export function Directions({
 
   useEffect(() => {
     loadMap(); // 초기 맵 로드
-  }, [address, kakaoMapjavaScriptKey]);
+  }, [loadMap]);
 
   const toggleMapLock = () => {
     const nextLockState = !isMapLocked;
