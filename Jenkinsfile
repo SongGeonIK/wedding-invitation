@@ -19,10 +19,13 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
-                // package-lock.json 이 있으면 ci, 없으면 install
-                sh 'npm ci || npm install'
+                sh '''
+                node -v
+                npm -v
+
+                npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+                '''
             }
-        }
 
         stage('Build & Deploy to GitHub Pages') {
             steps {
