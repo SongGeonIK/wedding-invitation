@@ -12,13 +12,15 @@ type MainImageProps = {
   detailsText: string;
 };
 
+const images = [
+  mainImage1,
+  mainImage2,
+  mainImage3,
+  mainImage4,
+];
+
 export function MainImage({ altText, mainText, coupleNames, detailsText }: MainImageProps) {
-  const images = [
-    mainImage1,
-    mainImage2,
-    mainImage3,
-    mainImage4,
-  ];
+
   const [mainImage, setMainImage] = useState<string>(images[0]);
   const [fade, setFade] = useState<boolean>(true);
 

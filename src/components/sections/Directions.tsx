@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./Directions.module.css";
 import TMapLogo from '../../assets/images/logos/tmap-logo.png';
 import KakaoMapLogo from '../../assets/images/logos/kakaomap-basic.png';
@@ -30,7 +30,7 @@ export function Directions({
   const mapRef = useRef<any>(null);
 
   // 카카오 맵 로드 및 초기화 함수
-  const loadMap = () => {
+  const loadMap = useCallback(() => {
     if (!address || !kakaoMapjavaScriptKey) return;
 
     const mapScript = document.createElement("script");
@@ -83,7 +83,7 @@ export function Directions({
       mapScript.removeEventListener("load", onLoadKakaoMap);
       document.head.removeChild(mapScript);
     };
-  };
+  }, [address, kakaoMapjavaScriptKey]);
 
   // 맵을 새로 로드하는 함수 (초기화 버튼 클릭 시)
   const handleResetMap = () => {
