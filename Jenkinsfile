@@ -8,6 +8,58 @@ pipeline {
     environment {
         GIT_CREDENTIALS_ID = 'SongGeonIk'
         REPO_URL           = 'https://github.com/SongGeonIK/wedding-invitation.git'
+
+        // .env 대신 Jenkins 크리덴셜 사용 (Secret text)
+        // Open API
+        // REACT_APP_SK_API_KEY=credentials('REACT_APP_SK_API_KEY')
+        // REACT_APP_KAKAO_API_KEY=credentials('REACT_APP_KAKAO_API_KEY')
+        // REACT_APP_API_BASE_URL=https://songgeonik.github.io
+
+        // 신랑 개인 정보
+        REACT_APP_GROOM_LAST_NAME=credentials('REACT_APP_GROOM_LAST_NAME')
+        REACT_APP_GROOM_FIRST_NAME=credentials('REACT_APP_GROOM_FIRST_NAME')
+        // REACT_APP_GROOM_BRITH_ORDER=장남
+        // REACT_APP_GROOM_BANK_NAME=신한
+        // REACT_APP_GROOM_BANK_ACCOUNT_NUMBER=110164870769
+        // REACT_APP_GROOM_KAKAO_PAY_AVAILABLE=true
+        // REACT_APP_GROOM_KAKAO_PAY_LINK=https://qr.kakaopay.com/Fa95JWmiY
+
+        // # 신랑 아버지 정보
+        // REACT_APP_GROOM_FATHER_NAME=송인성
+        // REACT_APP_GROOM_FATHER_BANK_NAME=우리
+        // REACT_APP_GROOM_FATHER_BANK_ACCOUNT_NUMBER=09504907112001
+        // REACT_APP_GROOM_FATHER_KAKAO_PAY_AVAILABLE=false
+        // REACT_APP_GROOM_FATHER_KAKAO_PAY_LINK=
+
+        // # 신랑 어머니 정보
+        // REACT_APP_GROOM_MOTHER_NAME=김복자
+        // REACT_APP_GROOM_MOTHER_BANK_NAME=우리
+        // REACT_APP_GROOM_MOTHER_BANK_ACCOUNT_NUMBER=1002237472991
+        // REACT_APP_GROOM_MOTHER_KAKAO_PAY_AVAILABLE=false
+        // REACT_APP_GROOM_MOTHER_KAKAO_PAY_LINK=
+
+        // # 신부 개인 정보
+        // REACT_APP_BRIDE_LAST_NAME=이
+        // REACT_APP_BRIDE_FIRST_NAME=지수
+        // REACT_APP_BRIDE_BRITH_ORDER=차녀
+        // REACT_APP_BRIDE_BANK_NAME=KB국민
+        // REACT_APP_BRIDE_BANK_ACCOUNT_NUMBER=91610277063
+        // REACT_APP_BRIDE_KAKAO_PAY_AVAILABLE=false
+        // REACT_APP_BRIDE_KAKAO_PAY_LINK=
+
+        // # 신부 아버지 정보
+        // REACT_APP_BRIDE_FATHER_NAME=이민창
+        // REACT_APP_BRIDE_FATHER_BANK_NAME=KB국민
+        // REACT_APP_BRIDE_FATHER_BANK_ACCOUNT_NUMBER=42110201042024
+        // REACT_APP_BRIDE_FATHER_KAKAO_PAY_AVAILABLE=false
+        // REACT_APP_BRIDE_FATHER_KAKAO_PAY_LINK=
+
+        // # 신부 어머니 정보
+        // REACT_APP_BRIDE_MOTHER_NAME=최영란
+        // REACT_APP_BRIDE_MOTHER_BANK_NAME=KB국민
+        // REACT_APP_BRIDE_MOTHER_BANK_ACCOUNT_NUMBER=46640101014878
+        // REACT_APP_BRIDE_MOTHER_KAKAO_PAY_AVAILABLE=false
+        // REACT_APP_BRIDE_MOTHER_KAKAO_PAY_LINK=
     }
 
     stages {
