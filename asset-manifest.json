@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/wedding-invitation/static/css/main.f0cc9ee0.css",
-    "main.js": "/wedding-invitation/static/js/main.b5c30d3c.js",
-    "static/media/rose-flower.svg": "/wedding-invitation/static/media/rose-flower.ae47eb27a2969d6ae90a5c1df88761fd.svg",
+    "main.css": "/wedding-invitation/static/css/main.d89d4622.css",
+    "main.js": "/wedding-invitation/static/js/main.bd62f6ba.js",
+    "static/media/rose-flower.svg": "/wedding-invitation/static/media/rose-flower.1e3d257400a6df88f94f38e9fdee3cdd.svg",
     "static/media/2.jpg": "/wedding-invitation/static/media/2.808ca5ed7110d19e0da3.jpg",
     "static/media/4.jpg": "/wedding-invitation/static/media/4.9a481eccbee8555cb2ed.jpg",
     "static/media/3.jpg": "/wedding-invitation/static/media/3.0963db6b83eb391a55b5.jpg",
@@ -20,11 +20,11 @@
     "static/media/kakaomap-basic.png": "/wedding-invitation/static/media/kakaomap-basic.b6bf66996c6904da94bf.png",
     "static/media/wedding-bell.svg": "/wedding-invitation/static/media/wedding-bell.12abb662a7f1d4fb715d.svg",
     "index.html": "/wedding-invitation/index.html",
-    "main.f0cc9ee0.css.map": "/wedding-invitation/static/css/main.f0cc9ee0.css.map",
-    "main.b5c30d3c.js.map": "/wedding-invitation/static/js/main.b5c30d3c.js.map"
+    "main.d89d4622.css.map": "/wedding-invitation/static/css/main.d89d4622.css.map",
+    "main.bd62f6ba.js.map": "/wedding-invitation/static/js/main.bd62f6ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0cc9ee0.css",
-    "static/js/main.b5c30d3c.js"
+    "static/css/main.d89d4622.css",
+    "static/js/main.bd62f6ba.js"
   ]
 }
