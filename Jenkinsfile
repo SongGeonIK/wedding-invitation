@@ -1,70 +1,29 @@
 pipeline {
-    agent any
+    agent any  // 어느 에이전트에서나 실행 (지금은 Jenkins 컨테이너)
 
     tools {
-        nodejs 'node-lts'  
+        nodejs 'node-lts'  // Jenkins에 등록한 NodeJS 이름
     }
 
     environment {
+        // 레포 정보
         GIT_CREDENTIALS_ID = 'SongGeonIk'
         REPO_URL           = 'https://github.com/SongGeonIK/wedding-invitation.git'
 
-        // .env 대신 Jenkins 크리덴셜 사용 (Secret text)
-        // Open API
-        // REACT_APP_SK_API_KEY=credentials('REACT_APP_SK_API_KEY')
-        // REACT_APP_KAKAO_API_KEY=credentials('REACT_APP_KAKAO_API_KEY')
-        // REACT_APP_API_BASE_URL=https://songgeonik.github.io
+        // Docker 관련 설정
+        DOCKER_IMAGE       = 'wedding-invitation:latest'
+        CONTAINER_NAME     = 'wedding-invitation-app'
+        HOST_PORT          = '8080'   // NAS에서 사용할 포트
 
-        // 신랑 개인 정보
+        // React 환경변수 (Jenkins 크리덴셜 사용)
         REACT_APP_GROOM_LAST_NAME=credentials('REACT_APP_GROOM_LAST_NAME')
         REACT_APP_GROOM_FIRST_NAME=credentials('REACT_APP_GROOM_FIRST_NAME')
-        // REACT_APP_GROOM_BRITH_ORDER=장남
-        // REACT_APP_GROOM_BANK_NAME=신한
-        // REACT_APP_GROOM_BANK_ACCOUNT_NUMBER=110164870769
-        // REACT_APP_GROOM_KAKAO_PAY_AVAILABLE=true
-        // REACT_APP_GROOM_KAKAO_PAY_LINK=https://qr.kakaopay.com/Fa95JWmiY
-
-        // # 신랑 아버지 정보
-        // REACT_APP_GROOM_FATHER_NAME=송인성
-        // REACT_APP_GROOM_FATHER_BANK_NAME=우리
-        // REACT_APP_GROOM_FATHER_BANK_ACCOUNT_NUMBER=09504907112001
-        // REACT_APP_GROOM_FATHER_KAKAO_PAY_AVAILABLE=false
-        // REACT_APP_GROOM_FATHER_KAKAO_PAY_LINK=
-
-        // # 신랑 어머니 정보
-        // REACT_APP_GROOM_MOTHER_NAME=김복자
-        // REACT_APP_GROOM_MOTHER_BANK_NAME=우리
-        // REACT_APP_GROOM_MOTHER_BANK_ACCOUNT_NUMBER=1002237472991
-        // REACT_APP_GROOM_MOTHER_KAKAO_PAY_AVAILABLE=false
-        // REACT_APP_GROOM_MOTHER_KAKAO_PAY_LINK=
-
-        // # 신부 개인 정보
-        // REACT_APP_BRIDE_LAST_NAME=이
-        // REACT_APP_BRIDE_FIRST_NAME=지수
-        // REACT_APP_BRIDE_BRITH_ORDER=차녀
-        // REACT_APP_BRIDE_BANK_NAME=KB국민
-        // REACT_APP_BRIDE_BANK_ACCOUNT_NUMBER=91610277063
-        // REACT_APP_BRIDE_KAKAO_PAY_AVAILABLE=false
-        // REACT_APP_BRIDE_KAKAO_PAY_LINK=
-
-        // # 신부 아버지 정보
-        // REACT_APP_BRIDE_FATHER_NAME=이민창
-        // REACT_APP_BRIDE_FATHER_BANK_NAME=KB국민
-        // REACT_APP_BRIDE_FATHER_BANK_ACCOUNT_NUMBER=42110201042024
-        // REACT_APP_BRIDE_FATHER_KAKAO_PAY_AVAILABLE=false
-        // REACT_APP_BRIDE_FATHER_KAKAO_PAY_LINK=
-
-        // # 신부 어머니 정보
-        // REACT_APP_BRIDE_MOTHER_NAME=최영란
-        // REACT_APP_BRIDE_MOTHER_BANK_NAME=KB국민
-        // REACT_APP_BRIDE_MOTHER_BANK_ACCOUNT_NUMBER=46640101014878
-        // REACT_APP_BRIDE_MOTHER_KAKAO_PAY_AVAILABLE=false
-        // REACT_APP_BRIDE_MOTHER_KAKAO_PAY_LINK=
     }
 
     stages {
         stage('Checkout') {
             steps {
+                // GitHub에서 현재 레포 코드 가져오기
                 checkout scm
             }
         }
@@ -75,35 +34,43 @@ pipeline {
                 node -v
                 npm -v
 
+                # 의존성 설치
                 npm ci --legacy-peer-deps || npm install --legacy-peer-deps
                 '''
             }
         }
 
-        stage('Build & Deploy to GitHub Pages') {
+        stage('Build Docker Image') {
             steps {
-                withCredentials([
-                    usernamePassword(
-                        credentialsId: "${GIT_CREDENTIALS_ID}",
-                        usernameVariable: 'GIT_USERNAME',
-                        passwordVariable: 'GIT_PASSWORD'
-                    )
-                ]) {
-                    sh '''
-                        set -e
+                sh '''
+                echo "Building Docker image: ${DOCKER_IMAGE}"
+                docker build -t ${DOCKER_IMAGE} .
+                '''
+            }
+        }
 
-                        # git 커밋 작성자 정보 설정 (CI용)
-                        git config user.name "SongGeonIK"
-                        git config user.email "rjsdlr4474@naver.com"  # 원하면 본인 GitHub 이메일/noreply 이메일로 변경
+        stage('Deploy Container on NAS') {
+            steps {
+                sh '''
+                # 기존 컨테이너가 실행 중이면 정지
+                if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
+                    echo "Stopping existing container: ${CONTAINER_NAME}"
+                    docker stop ${CONTAINER_NAME}
+                fi
 
-                        # gh-pages 패키지가 사용하는 origin URL에 PAT 심어주기
-                        git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/SongGeonIK/wedding-invitation.git
+                # 정지된 컨테이너라도 남아 있으면 삭제
+                if [ "$(docker ps -aq -f name=${CONTAINER_NAME})" ]; then
+                    echo "Removing existing container: ${CONTAINER_NAME}"
+                    docker rm ${CONTAINER_NAME}
+                fi
 
-                        # package.json 의 "predeploy": "npm run build"
-                        # 가 먼저 실행되고, 그 다음 "deploy": "gh-pages -d build" 실행됨
-                        npm run deploy
-                    '''
-                }
+                # 새 컨테이너 실행
+                echo "Running new container: ${CONTAINER_NAME}"
+                docker run -d \
+                    --name ${CONTAINER_NAME} \
+                    -p ${HOST_PORT}:80 \
+                    ${DOCKER_IMAGE}
+                '''
             }
         }
     }
