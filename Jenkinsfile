@@ -15,9 +15,9 @@ pipeline {
         CONTAINER_NAME     = 'wedding-invitation-app'
         HOST_PORT          = '8080'   // NAS에서 사용할 포트
 
-        // React 환경변수 (Jenkins 크리덴셜 사용)
-        REACT_APP_GROOM_LAST_NAME=credentials('REACT_APP_GROOM_LAST_NAME')
-        REACT_APP_GROOM_FIRST_NAME=credentials('REACT_APP_GROOM_FIRST_NAME')
+        // React 환경변수 (Jenkins 크리덴셜 사용, 개발참고만 하려고 냅둔경우, 실제로는 .env로 가져옴)
+        // REACT_APP_GROOM_LAST_NAME=credentials('REACT_APP_GROOM_LAST_NAME')
+        // REACT_APP_GROOM_FIRST_NAME=credentials('REACT_APP_GROOM_FIRST_NAME')
     }
 
     stages {

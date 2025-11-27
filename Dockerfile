@@ -4,13 +4,6 @@ FROM node:18-alpine AS build
 # 컨테이너 안에서 작업 폴더 지정
 WORKDIR /app
 
-# --- env 추가  ---
-ARG REACT_APP_GROOM_LAST_NAME
-ARG REACT_APP_GROOM_FIRST_NAME
-ENV REACT_APP_GROOM_LAST_NAME=$REACT_APP_GROOM_LAST_NAME
-ENV REACT_APP_GROOM_FIRST_NAME=$REACT_APP_GROOM_FIRST_NAME
-# -----------------
-
 # 의존성 설치를 위해 package.json만 먼저 복사
 COPY package*.json ./
 
