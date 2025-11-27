@@ -15,7 +15,7 @@ ENV REACT_APP_GROOM_FIRST_NAME=$REACT_APP_GROOM_FIRST_NAME
 COPY package*.json ./
 
 # npm 패키지 설치
-RUN npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps
 
 # 나머지 소스코드 전체 복사
 COPY . .
