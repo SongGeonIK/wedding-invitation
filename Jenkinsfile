@@ -34,8 +34,9 @@ pipeline {
                 node -v
                 npm -v
 
-                # 의존성 설치
-                npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+                # package-lock.json 을 기준으로 깨끗하게 설치
+                rm -rf node_modules
+                npm ci --legacy-peer-deps
                 '''
             }
         }
