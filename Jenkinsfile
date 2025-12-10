@@ -14,10 +14,6 @@ pipeline {
         DOCKER_IMAGE       = 'wedding-invitation:latest'
         CONTAINER_NAME     = 'wedding-invitation-app'
         HOST_PORT          = '8080'   // NAS에서 사용할 포트
-
-        // React 환경변수 (Jenkins 크리덴셜 사용, 개발참고만 하려고 냅둔경우, 실제로는 .env로 가져옴)
-        // REACT_APP_GROOM_LAST_NAME=credentials('REACT_APP_GROOM_LAST_NAME')
-        // REACT_APP_GROOM_FIRST_NAME=credentials('REACT_APP_GROOM_FIRST_NAME')
     }
 
     stages {
@@ -43,10 +39,17 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh '''
-                echo "Building Docker image: ${DOCKER_IMAGE}"
-                docker build -t ${DOCKER_IMAGE} .
-                '''
+                // Jenkins Credentials에 등록한 Secret file(.env) 사용
+                withCredentials([file(credentialsId: 'react_env_file', variable: 'ENV_FILE')]) {
+                    sh '''
+                    echo "Copying .env from Jenkins credentials"
+                    # Secret file(.env) 을 현재 워크스페이스의 .env 로 복사
+                    cp "$ENV_FILE" .env
+
+                    echo "Building Docker image: ${DOCKER_IMAGE}"
+                    docker build -t ${DOCKER_IMAGE} .
+                    '''
+                }
             }
         }
 
@@ -73,6 +76,14 @@ pipeline {
                     ${DOCKER_IMAGE}
                 '''
             }
-        }
+        }      
     }
+
+    // 어떤 경우든(성공/실패) 마지막에 워크스페이스 정리
+    post {
+        always {
+            echo "Cleaning workspace..."
+            cleanWs()
+        }
+    }  
 }
