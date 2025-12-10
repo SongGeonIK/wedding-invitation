@@ -6,10 +6,6 @@ pipeline {
     }
 
     environment {
-        // 레포 정보
-        GIT_CREDENTIALS_ID = 'SongGeonIk'
-        REPO_URL           = 'https://github.com/SongGeonIK/wedding-invitation.git'
-
         // Docker 관련 설정
         DOCKER_IMAGE       = 'wedding-invitation:latest'
         CONTAINER_NAME     = 'wedding-invitation-app'
